@@ -3,7 +3,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import HomeScreen from '../pages/home/index'
-import loginScreen from '../pages/login'
+import loginScreen from '../pages/login/index'
+import cadastroScreen from '../pages/cadastro/index'
 
 const Stack = createNativeStackNavigator();
 
@@ -14,10 +15,17 @@ export default function Route(){
         <Stack.Screen
           name="index"
           component={HomeScreen}
-          options={{ headerShown:false }}
+          options={{ headerShown:false, animation: 'fade' }}
         />
-        <Stack.Screen name="login" component={loginScreen} options={{ headerShown:false }} />
-      </Stack.Navigator>
+        <Stack.Screen 
+        name="login" 
+        component={loginScreen} 
+        options={{ headerShown:false, animation: 'fade' }} />
+        <Stack.Screen
+          name="cadastro" 
+          component={cadastroScreen}
+          options={{ headerShown:false, animation: 'fade' }} /> 
+        </Stack.Navigator>
     </NavigationContainer>
   );
 };

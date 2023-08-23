@@ -19,7 +19,7 @@ export default function Home({navigation}) {
           <Text style={{fontWeight:'bold', fontSize: 28, color:'white'}}>Login</Text>
         </Pressable>
         
-        <Pressable style={globalStyles.button}>
+        <Pressable style={globalStyles.button} onPress={() => navigation.navigate('cadastro')}>
           <Text style={{fontWeight:'bold', fontSize: 28, color:'white'}}>Cadastrar</Text>
         </Pressable>
 
@@ -28,15 +28,15 @@ export default function Home({navigation}) {
         <Text style={{textAlign: 'center', marginTop: 60}}>Entrar com conta alternativa</Text>
         <View style={[ globalStyles.button, {flexDirection: 'row', alignItems: 'center'}]}>
 
-          <Pressable style={{flexDirection: 'row-reverse'}}>
+          <Pressable style={{flexDirection: 'row-reverse'}} onPress={() => navigation.navigate('login')}> 
             <Image source={require("../../assets/icones/gmailIcon.png")}/>
           </Pressable>
           
-          <Pressable style={{marginLeft: 30, marginRight: 30,}}>
+          <Pressable style={{marginLeft: 30, marginRight: 30,}} onPress={() => navigation.navigate('login')}>
             <Image source={require("../../assets/icones/facebookIcon.png")}/>
           </Pressable>
 
-          <Pressable>
+          <Pressable onPress={() => navigation.navigate('login')}>
             <Image source={require("../../assets/icones/twitterIcon.png")}/>
           </Pressable>
         </View>
