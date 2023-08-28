@@ -24,6 +24,10 @@ export const globalStyles = StyleSheet.create({
       fontWeight: 'bold',
       justifyContent: 'center'
     },
+    fontBigBold: {
+      fontSize: 20,
+      fontWeight: 'bold'
+    },
     textInput: {
       backgroundColor: 'rgba(7, 30, 34, 0.3)',
       width: 330,
