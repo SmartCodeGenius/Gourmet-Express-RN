@@ -10,8 +10,8 @@ export default function Index() {
 
                 <TextInput style={[globalStyles.textInput, {marginTop: 50, marginBottom: 30}]} placeholder='Nome de Usuário'></TextInput>
                 <TextInput style={[globalStyles.textInput, {marginBottom: 30}]} placeholder='Email'></TextInput>
-                <TextInput style={[globalStyles.textInput, {marginBottom: 30}]} placeholder='Senha'></TextInput>
-                <TextInput style={[globalStyles.textInput, {marginBottom: 30}]} placeholder='Confirmar senha'></TextInput>
+                <TextInput style={[globalStyles.textInput, {marginBottom: 30}]} placeholder='Senha' secureTextEntry={true}></TextInput>
+                <TextInput style={[globalStyles.textInput, {marginBottom: 30}]} placeholder='Confirmar senha' secureTextEntry={true}></TextInput>
                 <Pressable style={[globalStyles.button, {alignSelf: 'center', marginTop: 30}]}>
                 <Text style={{color: 'white', fontSize: 28, fontWeight: "bold"}}>Próximo</Text>
                 </Pressable>

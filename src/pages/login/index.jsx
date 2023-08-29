@@ -9,12 +9,12 @@ export default function Login({navigation}) {
 
             <View style={{marginTop: 101, alignSelf: 'center'}}>
                 <TextInput placeholder="Email" style={[globalStyles.textInput, {marginBottom: 31}]}></TextInput>
-                <TextInput placeholder="Senha" style={[globalStyles.textInput]}></TextInput>
+                <TextInput secureTextEntry={true} placeholder="Senha" style={[globalStyles.textInput]}></TextInput>
                 <Pressable>
                     <Text style={{textAlign: 'center', fontSize: 16, color: 'grey'}}>Não lembra a senha?</Text>
                 </Pressable>
 
-                <Pressable style={[globalStyles.button, {alignSelf: 'center', marginTop: 51}]}>
+                <Pressable onPress={() => navigation.navigate('listaRestaurantes')} style={[globalStyles.button, {alignSelf: 'center', marginTop: 51}]}>
                     <Text style={{fontSize: 28, fontWeight: 'bold', color: 'white'}}>Entrar</Text>
                 </Pressable>
 

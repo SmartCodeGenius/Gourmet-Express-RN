@@ -1,7 +1,7 @@
 import React from "react";
 import { globalStyles } from "../../components/atoms";
-import { View, Text, Image } from "react-native";
-import {ContainerRestaurant} from "../../components/molecules"
+import { View, Text, Image} from "react-native";
+import ContainerRestaurant from "../../components/molecules"
 
 export default function ListaRestaurantes(){
     return(
@@ -10,7 +10,12 @@ export default function ListaRestaurantes(){
                 <Image style={{width: 165, height: 61, marginRight: 50}} source={require("../../assets/icones/logoMedia.png")}></Image>
                 <Image style={{alignSelf: 'center', marginRight: 10}} source={require("../../assets/icones/menuIcon.png")}></Image>
             </View>
-            <Text style={[globalStyles.textTitle, {fontSize: 24}]}>Restaurantes por perto</Text>
+
+
+            <Text style={[globalStyles.textTitle, {fontSize: 24, marginTop: 3}]}>Restaurantes por perto</Text>
+            <ContainerRestaurant/>
+            <Image source={require("../../assets/icones/twitterIcon.png")}/>
+
         </View>
     );
 };
