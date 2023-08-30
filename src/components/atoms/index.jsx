@@ -36,5 +36,9 @@ export const globalStyles = StyleSheet.create({
       borderWidth: 2,
       fontSize: 16,
       textAlign: 'center',
+    },
+    textButton: {
+        fontSize: 24,
+        fontWeight: 'bold'
     }
   });

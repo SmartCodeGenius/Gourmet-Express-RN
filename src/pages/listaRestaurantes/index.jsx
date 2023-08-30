@@ -1,7 +1,8 @@
 import React from "react";
 import { globalStyles } from "../../components/atoms";
-import { View, Text, Image} from "react-native";
-import ContainerRestaurant from "../../components/molecules"
+import { View, Text, Image, Pressable} from "react-native";
+import ContainerRestaurant from "../../components/molecules/ContainerRestaurant"
+
 
 export default function ListaRestaurantes(){
     return(
@@ -14,8 +15,11 @@ export default function ListaRestaurantes(){
 
             <Text style={[globalStyles.textTitle, {fontSize: 24, marginTop: 3}]}>Restaurantes por perto</Text>
             <ContainerRestaurant/>
-            <Image source={require("../../assets/icones/twitterIcon.png")}/>
-
+            <Image source={require("../../assets/icones/mapTemplate.png")} style={{marginTop: 15}}/>
+            
+            <Pressable style={[globalStyles.button, {marginTop: 22, width: 306}]}>
+                <Text style={[globalStyles.textButton, {color: 'white'}]}>Escanear QR code ou ID</Text>
+            </Pressable>
         </View>
     );
 };

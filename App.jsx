@@ -1,8 +1,9 @@
 import React from 'react';
-import Route from './src/routes';
+import Routes from './src/routes';
+import 'react-native-gesture-handler';
 
 export default function App() {
   return (
-      <Route />
-  );
+    <Routes/>
+    );
 };

@@ -5,7 +5,9 @@ import { globalStyles } from "../atoms";
 export default function ContainerRestaurant(){
     return(
         <View>    
-        <FlatList
+        <FlatList 
+            nestedScrollEnabled
+            style={{height: 250, flexGrow: 0, marginTop: 15}}
             data={restaurantes}
             keyExtractor={item=>item.cnpj}
             renderItem={({item})=> (
@@ -35,4 +37,29 @@ const restaurantes = [{
     nota: 4.5,
     desc: "(91) · Restaurante R. Joacir dos Passos, 18 Abre em breve às 11:00 Refeição no local·Para viagem·Entrega sem contato"
 },
+{
+    cnpj: 3,
+    nome: "Restaurante do Fulano",
+    nota: 4.5,
+    desc: "(91) · Restaurante R. Joacir dos Passos, 18 Abre em breve às 11:00 Refeição no local·Para viagem·Entrega sem contato"
+},
+{
+    cnpj: 4,
+    nome: "Restaurante do Fulano",
+    nota: 4.5,
+    desc: "(91) · Restaurante R. Joacir dos Passos, 18 Abre em breve às 11:00 Refeição no local·Para viagem·Entrega sem contato"
+},
+{
+    cnpj: 5,
+    nome: "Restaurante do Fulano",
+    nota: 4.5,
+    desc: "(91) · Restaurante R. Joacir dos Passos, 18 Abre em breve às 11:00 Refeição no local·Para viagem·Entrega sem contato"
+},
+{
+    cnpj: 6,
+    nome: "Restaurante do Fulano",
+    nota: 4.5,
+    desc: "(91) · Restaurante R. Joacir dos Passos, 18 Abre em breve às 11:00 Refeição no local·Para viagem·Entrega sem contato"
+},
+
 ]
