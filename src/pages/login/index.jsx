@@ -14,7 +14,7 @@ export default function Login({navigation}) {
                     <Text style={{textAlign: 'center', fontSize: 16, color: 'grey'}}>Não lembra a senha?</Text>
                 </Pressable>
 
-                <Pressable onPress={() => navigation.navigate('listaRestaurantes')} style={[globalStyles.button, {alignSelf: 'center', marginTop: 51}]}>
+                <Pressable onPress={() => navigation.navigate('DrawerLayout')} style={[globalStyles.button, {alignSelf: 'center', marginTop: 51}]}>
                     <Text style={{fontSize: 28, fontWeight: 'bold', color: 'white'}}>Entrar</Text>
                 </Pressable>
 
@@ -26,15 +26,15 @@ export default function Login({navigation}) {
             <Text style={{textAlign: 'center', marginTop: 60}}>Entrar com conta alternativa</Text>
             <View style={[ globalStyles.button, {flexDirection: 'row', alignItems: 'center', alignSelf: 'center'}]}>
 
-                 <Pressable style={{flexDirection: 'row-reverse'}} onPress={() => navigation.navigate('listaRestaurantes')}>
+                 <Pressable style={{flexDirection: 'row-reverse'}} onPress={() => navigation.navigate('DrawerLayout')}>
                     <Image source={require("../../assets/icones/gmailIcon.png")}/>
                  </Pressable>
           
-                <Pressable style={{marginLeft: 30, marginRight: 30,}} onPress={() => navigation.navigate('listaRestaurantes')}>
+                <Pressable style={{marginLeft: 30, marginRight: 30,}} onPress={() => navigation.navigate('DrawerLayout')}>
                   <Image source={require("../../assets/icones/facebookIcon.png")}/>
                 </Pressable>
 
-                <Pressable onPress={() => navigation.navigate('listaRestaurantes')}>
+                <Pressable onPress={() => navigation.navigate('DrawerLayout')}>
                     <Image source={require("../../assets/icones/twitterIcon.png")}/>
                 </Pressable>
             </View>

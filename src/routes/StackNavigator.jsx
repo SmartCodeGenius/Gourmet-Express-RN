@@ -12,8 +12,7 @@ import DrawerFunc from './DrawerNavigator';
 const Stack = createNativeStackNavigator();
 export default function StackNavigator(){
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName='index' screenOptions={{headerShown: false}}>
         <Stack.Screen
           name="index"
           component={HomeScreen}
@@ -31,7 +30,10 @@ export default function StackNavigator(){
           component={listaRestaurantes}
           options={{ headerShown:false, animation: 'fade' }} 
         />
+        <Stack.Screen 
+        name='DrawerLayout'
+        component={DrawerFunc}
+        />
         </Stack.Navigator>
-    </NavigationContainer>
   );
 };

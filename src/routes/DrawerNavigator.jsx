@@ -1,13 +1,16 @@
 import React from "react";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import DrawerScreen from "../pages/drawer";
+import { createDrawerNavigator, DrawerToggleButton } from "@react-navigation/drawer";
+import ListaRestaurantes from "../pages/listaRestaurantes";
 
 const Drawer = createDrawerNavigator();
 
 export default function DrawerFunc(){
   return (
-      <Drawer.Navigator>
-        <Drawer.Screen name="home" component={DrawerScreen} />
+      <Drawer.Navigator screenOptions={{        
+        drawerPosition: 'right',
+      headerLeft: false,
+      headerRight: () => <DrawerToggleButton/>}}>
+        <Drawer.Screen name="Teste" component={ListaRestaurantes} />
       </Drawer.Navigator>
   );
 }
