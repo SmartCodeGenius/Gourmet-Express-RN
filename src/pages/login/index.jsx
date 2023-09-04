@@ -1,11 +1,13 @@
 import React from "react";
 import { View, Text, TextInput, Pressable, Image } from "react-native";
+import { ScrollView } from "react-native";
 import { globalStyles } from '../../components/atoms';
 
 export default function Login({navigation}) {
     return(
+        <ScrollView>
         <View style={globalStyles.container}>
-            <Text style={[globalStyles.textTitle, {marginTop: 134}]}>Login</Text>
+            <Text style={[globalStyles.textTitle, {marginTop: 130}]}>Login</Text>
 
             <View style={{marginTop: 101, alignSelf: 'center'}}>
                 <TextInput placeholder="Email" style={[globalStyles.textInput, {marginBottom: 31}]}></TextInput>
@@ -18,13 +20,13 @@ export default function Login({navigation}) {
                     <Text style={{fontSize: 28, fontWeight: 'bold', color: 'white'}}>Entrar</Text>
                 </Pressable>
 
-                <Pressable>
+                <Pressable onPress={() => navigation.navigate('cadastro')}>
                     <Text style={{textAlign: 'center', fontSize: 16, color: 'grey'}}>Não possui cadastro??</Text>
                 </Pressable>
             </View>
 
             <Text style={{textAlign: 'center', marginTop: 60}}>Entrar com conta alternativa</Text>
-            <View style={[ globalStyles.button, {flexDirection: 'row', alignItems: 'center', alignSelf: 'center'}]}>
+            <View style={[ globalStyles.button, {marginBottom: 30,flexDirection: 'row', alignItems: 'center', alignSelf: 'center'}]}>
 
                  <Pressable style={{flexDirection: 'row-reverse'}} onPress={() => navigation.navigate('DrawerLayout')}>
                     <Image source={require("../../assets/icones/gmailIcon.png")}/>
@@ -39,5 +41,6 @@ export default function Login({navigation}) {
                 </Pressable>
             </View>
         </View>
+        </ScrollView>
     );
 };

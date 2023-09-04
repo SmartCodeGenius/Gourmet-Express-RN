@@ -5,7 +5,6 @@ import { globalStyles } from '../../components/atoms';
 export default function Home({navigation}) {
   return (
     <View style={globalStyles.container}>
-      
       <View style={{flex: 2, alignItems: 'center',marginTop: 121,}}>
         <Image source={require('../../assets/icones/logoGrande.jpg')} styles={{justifyContent: 'center',width:376,height: 150,}}></Image>
       </View>
