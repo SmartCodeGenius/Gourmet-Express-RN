@@ -6,7 +6,7 @@ import HomeScreen from '../pages/home'
 import loginScreen from '../pages/login'
 import cadastroScreen from '../pages/cadastro'
 import listaRestaurantes from '../pages/listaRestaurantes'
-import InformacoesOpcionas from '../pages/informaçõesOpcionais';
+import TelaConfirmacao from '../pages/confirmation';
 
 import DrawerFunc from './DrawerNavigator';
 
@@ -25,17 +25,17 @@ export default function StackNavigator(){
         <Stack.Screen
           name="cadastro" 
           component={cadastroScreen}
-          options={{ headerShown:false, animation: 'fade' }} /> 
+          options={{ headerShown:false, animation: 'fade' }} />   
+        <Stack.Screen 
+        name='telaConfirmacao'
+        component={TelaConfirmacao}
+        options={{ headerShown:false, animation: 'fade' }} 
+        />
         <Stack.Screen
           name="listaRestaurantes" 
           component={listaRestaurantes}
           options={{ headerShown:false, animation: 'fade' }} 
-        />        
-        <Stack.Screen 
-        name='InformaçõesOpcionais'
-        component={InformacoesOpcionas}
-        options={{ headerShown:false, animation: 'fade' }} 
-        />
+        />      
         <Stack.Screen 
         name='DrawerLayout'
         component={DrawerFunc}
