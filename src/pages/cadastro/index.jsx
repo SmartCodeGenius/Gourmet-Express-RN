@@ -10,7 +10,8 @@ export default function Index({navigation}) {
                 <Text style={[globalStyles.textTitle, {alignSelf: 'center', marginBottom: 30}]}>Crie sua conta</Text>  
 
                 <TextInput style={[globalStyles.textInput, {marginTop: 50, marginBottom: 30}]} placeholder='Nome de Usuário'></TextInput>
-                <TextInput style={[globalStyles.textInput, {marginBottom: 30}]} placeholder='Email'></TextInput>
+                <TextInput style={[globalStyles.textInput, {marginBottom: 30}]} placeholder='Email' keyboardType="email-address"></TextInput>
+                <TextInput style={[globalStyles.textInput, {marginBottom: 30}]} placeholder='Número de telefone' keyboardType="phone-pad" maxLength={11}></TextInput>
                 <TextInput style={[globalStyles.textInput, {marginBottom: 30}]} placeholder='Senha' secureTextEntry={true}></TextInput>
                 <TextInput style={[globalStyles.textInput, {marginBottom: 30}]} placeholder='Confirmar senha' secureTextEntry={true}></TextInput>
                 

@@ -1,4 +1,3 @@
-import { StatusBar } from 'react';
 import {Text, View, Image, Pressable} from 'react-native';
 import { globalStyles } from '../../components/atoms';
 

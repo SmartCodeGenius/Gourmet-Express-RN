@@ -4,7 +4,7 @@ import { DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawe
 import { Image } from "react-native";
 import { globalStyles } from "../atoms";
 
-const CustomDrawer = (props) => {
+export default function CustomDrawer(props){
     return(
         <View style={{flex: 1}}>
             <DrawerContentScrollView {...props}>
@@ -14,12 +14,10 @@ const CustomDrawer = (props) => {
             </DrawerContentScrollView>
             
             <View style={{marginBottom: 30, borderTopWidth: 1, borderTopColor: '#ccc'}}>
-                    <TouchableHighlight style={{marginLeft: 20, marginTop:30, borderWidth: 3, borderRadius: 50, borderColor: '#5A5A5A', width: 233, height: 37, justifyContent: 'center'}}>
+                    <TouchableHighlight underlayColor={'white'} style={{ marginLeft: 20, marginTop:30, borderWidth: 3, borderRadius: 50, borderColor: '#5A5A5A', width: 233, height: 37, justifyContent: 'center'}} onPress={() => props.navigation.navigate('index')}>
                         <Text style={{textAlign: "center", color: 'black', fontSize: 20}}>Logout</Text>
                     </TouchableHighlight>
             </View>
         </View>
     );
 }
-
-export default CustomDrawer
