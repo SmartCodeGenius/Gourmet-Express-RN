@@ -1,28 +1,28 @@
 import React from "react";
-import { View, Text, TextInput, Pressable, Image } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image, Pressable } from "react-native";
 import { ScrollView } from "react-native";
 import { globalStyles } from '../../components/atoms';
 
 export default function Login({navigation}) {
     return(
-        <ScrollView>
+        <ScrollView style={{flex: 1}} contentContainerStyle={{flexGrow: 1}}>
         <View style={globalStyles.container}>
             <Text style={[globalStyles.textTitle, {marginTop: 130}]}>Login</Text>
 
             <View style={{marginTop: 101, alignSelf: 'center'}}>
                 <TextInput placeholder="Email" style={[globalStyles.textInput, {marginBottom: 31}]}></TextInput>
                 <TextInput secureTextEntry={true} placeholder="Senha" style={[globalStyles.textInput]}></TextInput>
-                <Pressable>
+                <TouchableOpacity onPress={() => navigation.navigate('RecuperaSenha')}>
                     <Text style={{textAlign: 'center', fontSize: 16, color: 'grey'}}>Não lembra a senha?</Text>
-                </Pressable>
+                </TouchableOpacity>
 
-                <Pressable onPress={() => navigation.navigate('DrawerLayout')} style={[globalStyles.button, {alignSelf: 'center', marginTop: 51}]}>
+                <TouchableOpacity onPress={() => navigation.navigate('DrawerLayout')} style={[globalStyles.button, {alignSelf: 'center', marginTop: 51}]}>
                     <Text style={{fontSize: 28, fontWeight: 'bold', color: 'white'}}>Entrar</Text>
-                </Pressable>
+                </TouchableOpacity>
 
-                <Pressable onPress={() => navigation.navigate('cadastro')}>
-                    <Text style={{textAlign: 'center', fontSize: 16, color: 'grey'}}>Não possui cadastro??</Text>
-                </Pressable>
+                <TouchableOpacity onPress={() => navigation.navigate('cadastro')}>
+                    <Text style={{textAlign: 'center', fontSize: 16, color: 'grey'}}>Não possui cadastro?</Text>
+                </TouchableOpacity>
             </View>
 
             <Text style={{textAlign: 'center', marginTop: 60}}>Entrar com conta alternativa</Text>

@@ -7,6 +7,7 @@ import loginScreen from '../pages/login'
 import cadastroScreen from '../pages/cadastro'
 import listaRestaurantes from '../pages/listaRestaurantes'
 import TelaConfirmacao from '../pages/confirmation';
+import RecuperaSenha from '../pages/recuperaSenha';
 
 import DrawerFunc from './DrawerNavigator';
 
@@ -35,6 +36,11 @@ export default function StackNavigator(){
           name="listaRestaurantes" 
           component={listaRestaurantes}
           options={{ headerShown:false, animation: 'fade' }} 
+        />
+        <Stack.Screen
+        name='RecuperaSenha'
+        component={RecuperaSenha}
+        options={{ headerShown:false, animation: 'fade' }} 
         />      
         <Stack.Screen 
         name='DrawerLayout'

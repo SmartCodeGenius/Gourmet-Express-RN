@@ -1,4 +1,4 @@
-import {Text, View, Image, Pressable} from 'react-native';
+import {Text, View, Image, TouchableOpacity} from 'react-native';
 import { globalStyles } from '../../components/atoms';
 
 export default function Home({navigation}) {
@@ -13,13 +13,13 @@ export default function Home({navigation}) {
       <View style={{flex: 1, marginBottom: 250,alignItems: 'center'}}>
         <Text style={{fontWeight:'bold', fontSize: 24}}>Seja bem-vindo(a)!</Text>
         
-        <Pressable   style={[globalStyles.button, {marginBottom:36}]} onPress={() => navigation.navigate('login')}>
+        <TouchableOpacity   style={[globalStyles.button, {marginBottom:36}]} onPress={() => navigation.navigate('login')}>
           <Text style={{fontWeight:'bold', fontSize: 28, color:'white'}}>Login</Text>
-        </Pressable>
+        </TouchableOpacity>
         
-        <Pressable style={globalStyles.button} onPress={() => navigation.navigate('cadastro')}>
+        <TouchableOpacity style={globalStyles.button} onPress={() => navigation.navigate('cadastro')}>
           <Text style={{fontWeight:'bold', fontSize: 28, color:'white'}}>Cadastrar</Text>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </View>
   );

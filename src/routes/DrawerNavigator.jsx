@@ -1,10 +1,10 @@
 import React from "react";
 import { createDrawerNavigator, DrawerToggleButton } from "@react-navigation/drawer";
 
-import ConfiguracaoDrawer from "../pages/drawer/configurações";
-import CarteiraDrawer from "../pages/drawer/carteira";
+import ConfiguracaoDrawer from "../pages/Menu/configurações";
+import CarteiraDrawer from "../pages/Menu/carteira";
 import ListaRestaurantes from "../pages/listaRestaurantes";
-import HistoricoDrawer from "../pages/drawer/histórico";
+import HistoricoDrawer from "../pages/Menu/histórico";
 
 import CustomDrawer from "../components/molecules/customDrawer";
 

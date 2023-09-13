@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TextInput, Pressable, ScrollView} from "react-native";
+import { View, Text, TextInput, TouchableOpacity, ScrollView} from "react-native";
 import { globalStyles } from "../../components/atoms";
 
 export default function Index({navigation}) {
@@ -15,9 +15,9 @@ export default function Index({navigation}) {
                 <TextInput style={[globalStyles.textInput, {marginBottom: 30}]} placeholder='Senha' secureTextEntry={true}></TextInput>
                 <TextInput style={[globalStyles.textInput, {marginBottom: 30}]} placeholder='Confirmar senha' secureTextEntry={true}></TextInput>
                 
-                <Pressable style={[globalStyles.button, {alignSelf: 'center', marginTop: 30}]} onPress={() => navigation.navigate('telaConfirmacao')}>
+                <TouchableOpacity underlayColor={'white'} style={[globalStyles.button, {alignSelf: 'center', marginTop: 30}]} onPress={() => navigation.navigate('telaConfirmacao')}>
                 <Text style={{color: 'white', fontSize: 28, fontWeight: "bold"}}>Próximo</Text>
-                </Pressable>
+                </TouchableOpacity>
             </View>
         </View>
     </ScrollView>

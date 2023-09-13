@@ -7,7 +7,7 @@ export default function ContainerRestaurant(){
         <View>    
         <FlatList 
             nestedScrollEnabled
-            style={{height: 400, flexGrow: 0, marginTop: 15}}
+            style={{height: 500, flexGrow: 0, marginTop: 15}}
             data={restaurantes}
             keyExtractor={item=>item.cnpj}
             renderItem={({item})=> (

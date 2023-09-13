@@ -22,7 +22,7 @@ export const globalStyles = StyleSheet.create({
     textTitle:{
       fontSize: 40,
       fontWeight: 'bold',
-      justifyContent: 'center'
+      textAlign: 'center'
     },
     fontBigBold: {
       fontSize: 20,
@@ -40,5 +40,10 @@ export const globalStyles = StyleSheet.create({
     textButton: {
         fontSize: 24,
         fontWeight: 'bold'
+    },
+    containerHeader: {
+      width: '100%',
+      height: '15%',
+      backgroundColor: '#7C0B0B'
     }
   });

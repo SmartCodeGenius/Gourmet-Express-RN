@@ -1,10 +1,10 @@
 import React from "react";
-import {Text, View, Image, Pressable} from 'react-native';
+import {Text, View} from 'react-native';
 
 export default function CarteiraDrawer(){
     return(
         <View>
-            <Text>Oi</Text>
+            <Text>a</Text>
         </View>
     );
 }

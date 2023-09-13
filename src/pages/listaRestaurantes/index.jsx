@@ -1,6 +1,6 @@
 import React from "react";
 import { globalStyles } from "../../components/atoms";
-import { View, Text, Image, TouchableHighlight} from "react-native";
+import { View, Text, Image, TouchableHighlight, TouchableOpacity} from "react-native";
 import ContainerRestaurant from "../../components/molecules/ContainerRestaurant"
 import { DrawerActions } from "@react-navigation/native";
 
@@ -19,9 +19,9 @@ export default function ListaRestaurantes({navigation}){
             <Text style={[globalStyles.textTitle, {fontSize: 24, marginTop: 3}]}>Restaurantes por perto</Text>
             <ContainerRestaurant/>
 
-            <TouchableHighlight underlayColor={'white'} style={[globalStyles.button, {marginTop: 35, width: 306}]}>
+            <TouchableOpacity underlayColor={'white'} style={[globalStyles.button, {marginTop: 25, width: 306}]}>
                 <Text style={[globalStyles.textButton, {color: 'white'}]}>Escanear QR code ou ID</Text>
-            </TouchableHighlight>
+            </TouchableOpacity>
         </View>
     );
 };
