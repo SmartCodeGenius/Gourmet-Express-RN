@@ -8,7 +8,35 @@ const dados = [{
     nome: 'Pão de queijo',
     unidade: 3,
     preço: 9.00,
-    dateUltimoPedido: '12/12/2002',
+    dateUltimoPedido: '12/2/23 07:42',
+    avaliacao: 4,
+},{
+    key: 2,
+    nome: 'Pão de queijo',
+    unidade: 3,
+    preço: 9.00,
+    dateUltimoPedido: '12/2/23 07:42',
+    avaliacao: 4,
+},{
+    key: 3,
+    nome: 'Pão de queijo',
+    unidade: 3,
+    preço: 9.00,
+    dateUltimoPedido: '12/2/23 07:42',
+    avaliacao: 4,
+},{
+    key: 4,
+    nome: 'Pão de queijo',
+    unidade: 3,
+    preço: 9.00,
+    dateUltimoPedido: '12/2/23 07:42',
+    avaliacao: 4,
+},{
+    key: 5,
+    nome: 'Pão de queijo',
+    unidade: 3,
+    preço: 9.00,
+    dateUltimoPedido: '12/2/23 07:42',
     avaliacao: 4,
 }]
 
@@ -21,7 +49,8 @@ export default function HistoricoDrawer(){
             <FlatList 
             data={dados}
             keyExtractor={item => item.key}
-            renderItem={({item})=> <FlatListProducts data={item}/>}
+            renderItem={({item})=> 
+            <FlatListProducts data={item}/>}
             />
         </View>
     );

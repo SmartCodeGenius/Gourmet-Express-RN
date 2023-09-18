@@ -20,7 +20,7 @@ export default function ListaRestaurantes({navigation}){
             <ContainerRestaurant/>
 
             <TouchableOpacity underlayColor={'white'} style={[globalStyles.button, {marginTop: 25, width: 306}]}>
-                <Text style={[globalStyles.textButton, {color: 'white'}]}>Escanear QR code ou ID</Text>
+                <Text style={[globalStyles.textButton, {color: 'white'}]}>QR code ou ID</Text>
             </TouchableOpacity>
         </View>
     );
