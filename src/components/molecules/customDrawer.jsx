@@ -1,7 +1,6 @@
 import React from "react";
-import { View, Text, TouchableHighlight} from "react-native";
+import { View, Text, TouchableHighlight, Image} from "react-native";
 import { DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
-import { Image } from "react-native";
 import { globalStyles } from "../atoms";
 
 export default function CustomDrawer(props){

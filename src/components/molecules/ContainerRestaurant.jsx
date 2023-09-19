@@ -16,7 +16,7 @@ export default function ContainerRestaurant(){
                     <View style={{marginLeft: 10}}>
                         <Text style={[globalStyles.fontBigBold, {marginBottom: 5}]}>{item.nome}</Text>
                         <Text>{item.nota} ⭐⭐⭐⭐⭐</Text>
-                        <Text>{item.desc}</Text>
+                        <Text style={{paddingRight: 130}}>{item.desc}</Text>
                     </View>
                 </View>
             )}

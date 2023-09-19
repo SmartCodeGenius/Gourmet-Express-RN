@@ -34,7 +34,7 @@ export default function ConfiguracaoDrawer(){
         </View>
         
         <TouchableHighlight style={styles.button}>
-                <Text style={styles.textButton}>Mudar senha</Text>
+                <Text style={{fontSize: 20, textAlign: 'center', color: 'white', fontWeight: 'bold', paddingTop: 10}}>Mudar senha</Text>
         </TouchableHighlight>
 
         <TouchableHighlight style={[styles.buttonFim, {marginBottom: 20}]}>
