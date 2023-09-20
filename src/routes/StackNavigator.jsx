@@ -8,6 +8,9 @@ import cadastroScreen from '../pages/cadastro'
 import listaRestaurantes from '../pages/listaRestaurantes'
 import TelaConfirmacao from '../pages/confirmation';
 import RecuperaSenha from '../pages/recuperaSenha';
+import AdicionarCreditos from '../pages/adicionarCreditos';
+import MetodosDePagamento from '../pages/metodosDePagamento';
+
 
 import DrawerFunc from './DrawerNavigator';
 
@@ -41,7 +44,17 @@ export default function StackNavigator(){
         name='RecuperaSenha'
         component={RecuperaSenha}
         options={{ headerShown:false, animation: 'fade' }} 
+        />        
+        <Stack.Screen
+        name='AdicionarCreditos'
+        component={AdicionarCreditos}
+        options={{ headerShown:false, animation: 'fade' }} 
         />      
+        <Stack.Screen
+        name='MetodosDePagamento'
+        component={MetodosDePagamento}
+        options={{ headerShown:false, animation: 'fade' }} 
+        />
         <Stack.Screen 
         name='DrawerLayout'
         component={DrawerFunc}

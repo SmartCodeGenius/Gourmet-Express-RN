@@ -3,7 +3,7 @@ import {FlatList, Text, TouchableHighlight, View} from 'react-native';
 import FlatlistCartoes from "../../components/molecules/flatListCartoes";
 import { globalStyles } from "../../components/atoms";
 
-export default function CarteiraDrawer(){
+export default function CarteiraDrawer({navigation}){
     return(
         <View style={globalStyles.container}>
             <View style={{marginTop: 100}}>
@@ -16,11 +16,11 @@ export default function CarteiraDrawer(){
             </View>
 
             <View style={{marginTop: 60}}>
-            <TouchableHighlight style={{backgroundColor: '#7C0B0B', width: 329, height: 42, borderRadius: 30}}>
+            <TouchableHighlight underlayColor={'white'} style={{backgroundColor: '#7C0B0B', width: 329, height: 42, borderRadius: 30}} onPress={() => navigation.navigate('AdicionarCreditos')}>
                     <Text style={{textAlign: 'center', paddingTop: 10, color: 'white'}}>Adicionar créditos</Text>
                 </TouchableHighlight>
 
-                <TouchableHighlight style={{backgroundColor: '#7C0B0B', width: 329, height: 42, borderRadius: 30, marginTop: 20}}>
+                <TouchableHighlight underlayColor={'white'} style={{backgroundColor: '#7C0B0B', width: 329, height: 42, borderRadius: 30, marginTop: 20}} onPress={()=> navigation.navigate('MetodosDePagamento')}>
                     <Text style={{textAlign: 'center', paddingTop: 10, color: 'white'}}>Adicionar métodos de pagamento</Text>
                 </TouchableHighlight>
             </View>

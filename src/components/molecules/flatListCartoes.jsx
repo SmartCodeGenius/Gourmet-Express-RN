@@ -11,8 +11,8 @@ export default function FlatlistCartoes({data}){
             </View>
 
             <View style={{marginTop: 20, marginLeft: 20}}>
-                <Text style={{fontWeight: '500', fontSize: 20}}>{data.tipo}</Text>
-                <Text style={{fontWeight: '500', fontSize: 20}}>{data.backNumber}</Text>
+                <Text style={{color: 'black', fontWeight: '500', fontSize: 20}}>{data.tipo}</Text>
+                <Text style={{color: 'black', fontWeight: '500', fontSize: 20}}>{data.backNumber}</Text>
             </View>
         </View>
     );
