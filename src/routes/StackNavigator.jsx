@@ -1,6 +1,5 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
 
 import HomeScreen from '../pages/home'
 import loginScreen from '../pages/login'
@@ -10,6 +9,10 @@ import TelaConfirmacao from '../pages/confirmation';
 import RecuperaSenha from '../pages/recuperaSenha';
 import AdicionarCreditos from '../pages/adicionarCreditos';
 import MetodosDePagamento from '../pages/metodosDePagamento';
+import ValeAlimentação from '../pages/valeAlimentação';
+import ValeRefeição from '../pages/valeRefeição';
+import CriarNovaSenha from '../pages/criarNovaSenha';
+import Acesso from '../pages/acesso';
 
 
 import DrawerFunc from './DrawerNavigator';
@@ -53,6 +56,26 @@ export default function StackNavigator(){
         <Stack.Screen
         name='MetodosDePagamento'
         component={MetodosDePagamento}
+        options={{ headerShown:false, animation: 'fade' }} 
+        />
+        <Stack.Screen
+        name='ValeAlimentação'
+        component={ValeAlimentação}
+        options={{ headerShown:false, animation: 'fade' }} 
+        />        
+        <Stack.Screen
+        name='ValeRefeição'
+        component={ValeRefeição}
+        options={{ headerShown:false, animation: 'fade' }} 
+        />
+        <Stack.Screen
+        name='CriarNovaSenha'
+        component={CriarNovaSenha}
+        options={{ headerShown:false, animation: 'fade' }} 
+        />
+        <Stack.Screen
+        name='Acesso'
+        component={Acesso}
         options={{ headerShown:false, animation: 'fade' }} 
         />
         <Stack.Screen 

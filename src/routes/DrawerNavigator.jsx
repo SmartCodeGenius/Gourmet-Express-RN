@@ -3,7 +3,7 @@ import { createDrawerNavigator, DrawerToggleButton } from "@react-navigation/dra
 
 import ConfiguracaoDrawer from "../pages/Menu/configurações";
 import CarteiraDrawer from "../pages/Menu/carteira";
-import ListaRestaurantes from "../pages/listaRestaurantes";
+import TelaInicial from "../pages/telaInicial";
 import HistoricoDrawer from "../pages/Menu/histórico";
 
 import CustomDrawer from "../components/molecules/customDrawer";
@@ -20,7 +20,7 @@ export default function DrawerFunc(){
         headerRight: () => <DrawerToggleButton/>,
         headerShown: false,
       }}>
-        <Drawer.Screen name="Home" component={ListaRestaurantes} options={{ drawerActiveTintColor: '#fff', drawerActiveBackgroundColor: '#7C0B0B'}}/>
+        <Drawer.Screen name="Home" component={TelaInicial} options={{ drawerActiveTintColor: '#fff', drawerActiveBackgroundColor: '#7C0B0B'}}/>
         <Drawer.Screen name="Histórico" component={HistoricoDrawer} options={{ drawerActiveTintColor: '#fff', drawerActiveBackgroundColor: '#7C0B0B'}}/>
         <Drawer.Screen name="Configurações" component={ConfiguracaoDrawer} options={{ drawerActiveTintColor: '#fff', drawerActiveBackgroundColor: '#7C0B0B'}}/>
         <Drawer.Screen name="Carteira" component={CarteiraDrawer} options={{ drawerActiveTintColor: '#fff', drawerActiveBackgroundColor: '#7C0B0B'}}/>

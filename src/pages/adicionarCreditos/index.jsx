@@ -19,21 +19,21 @@ export default function AdicionarCreditos({navigation}){
             <Text style={{marginTop: 55, fontSize: 24, fontWeight: 'bold'}}>Valores Recomendados</Text>
             
                 <View style={{flexDirection: 'row', marginTop: 25}}>
-                    <TouchableHighlight underlayColor={'white'} style={[globalStyles.button, {width: 90}]}>
+                    <TouchableHighlight underlayColor={'white'} style={[globalStyles.button, {width: 90}]} onPress={() => navigation.navigate('Carteira')}>
                         <Text style={{color: 'white', fontSize: 24, fontWeight: '500', textAlign: 'center'}}>R$10</Text>
                     </TouchableHighlight>
                     
-                    <TouchableHighlight underlayColor={'white'} style={[globalStyles.button, {marginLeft: 25, width: 90}]}>
+                    <TouchableHighlight underlayColor={'white'} style={[globalStyles.button, {marginLeft: 25, width: 90}]} onPress={() => navigation.navigate('Carteira')}>
                         <Text style={{color: 'white', fontSize: 24, fontWeight: '500', textAlign: 'center'}}>R$25</Text>
                     </TouchableHighlight>
                 </View>
 
                 <View style={{flexDirection: 'row', marginTop: 15}}>
-                    <TouchableHighlight underlayColor={'white'} style={[globalStyles.button, {width: 90}]}>
+                    <TouchableHighlight underlayColor={'white'} style={[globalStyles.button, {width: 90}]} onPress={() => navigation.navigate('Carteira')}>
                         <Text style={{color: 'white', fontSize: 24, fontWeight: '500', textAlign: 'center'}}>R$50</Text>
                     </TouchableHighlight>
                     
-                    <TouchableHighlight underlayColor={'white'}  style={[globalStyles.button, {marginLeft: 25, width: 90}]}>
+                    <TouchableHighlight underlayColor={'white'}  style={[globalStyles.button, {marginLeft: 25, width: 90}]} onPress={() => navigation.navigate('Carteira')}>
                         <Text style={{color: 'white', fontSize: 24, fontWeight: '500', textAlign: 'center'}}>R$75</Text>
                     </TouchableHighlight>
                 </View>
