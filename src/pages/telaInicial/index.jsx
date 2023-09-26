@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, TouchableHighlight, Image} from "react-native";
+import { View, Text, TouchableHighlight, Image, FlatList} from "react-native";
 import { DrawerActions } from "@react-navigation/native";
 import { globalStyles } from "../../components/atoms";
 import userIcon from '../../assets/icones/labelUsuario.png'
 import FuncCarousel from "../../components/molecules/carousel";
+import FlatListTelaInicial from "../../components/molecules/flatListTelaInicial";
 
 export default function TelaInicial({navigation}){
     return(
@@ -23,7 +24,15 @@ export default function TelaInicial({navigation}){
             </View>
 
             <Text style={{color: '#7C0B0B', fontSize: 35, marginTop: 40, marginBottom: 20}}>Restaurante Fulano</Text>
-            <FuncCarousel/>
+            <View style={{height: '30.5%', width: 'auto'}}>
+                <FuncCarousel/>
+            </View>
+            
+            <FlatList
+            data={FlatListTelaInicial.dados}
+            keyExtractor={item => item.key}
+            renderItem={({item})=> {<FlatListTelaInicial data={item}/>}}            
+            />
         </View>
     )
 }
