@@ -1,49 +1,18 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import Template from '../../assets/icones/imagePlaceholder.png'
 
 
 export default function FlatListTelaInicial({data}){
     return(
-        <View>
-            <Text>vai toma no cu</Text>
+        <View style={{paddingTop: 20, borderColor: 'gray', borderBottomWidth: 1, paddingBottom: 20}}>
+          <View style={{flexDirection: "row"}}>
+            <Image source={Template} style={{width: 144.11, height: 93, borderRadius: 10, marginRight: 40}}></Image>
+            <View>
+              <Text style={{fontWeight: 'bold', fontSize: 24, textAlign: 'center'}}>{data.nome}</Text>
+              <Text>R${data.preço}</Text>
+            </View>
+          </View>
         </View>
     )
 }
-
-const dados = [{
-    key: 1,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  },{
-    key: 2,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  },{
-    key: 3,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  },{
-    key: 4,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  },{
-    key: 5,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  }]

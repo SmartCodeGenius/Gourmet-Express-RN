@@ -13,6 +13,7 @@ import ValeAlimentação from '../pages/valeAlimentação';
 import ValeRefeição from '../pages/valeRefeição';
 import CriarNovaSenha from '../pages/criarNovaSenha';
 import Acesso from '../pages/acesso';
+import Item from '../pages/item';
 
 
 import DrawerFunc from './DrawerNavigator';
@@ -76,6 +77,11 @@ export default function StackNavigator(){
         <Stack.Screen
         name='Acesso'
         component={Acesso}
+        options={{ headerShown:false, animation: 'fade' }} 
+        />
+        <Stack.Screen
+        name='Item'
+        component={Item}
         options={{ headerShown:false, animation: 'fade' }} 
         />
         <Stack.Screen 

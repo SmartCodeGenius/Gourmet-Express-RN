@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableHighlight, Image, FlatList} from "react-native";
+import { View, Text, TouchableHighlight, Image, FlatList, TextInput} from "react-native";
 import { DrawerActions } from "@react-navigation/native";
 import { globalStyles } from "../../components/atoms";
 import userIcon from '../../assets/icones/labelUsuario.png'
@@ -27,12 +27,50 @@ export default function TelaInicial({navigation}){
             <View style={{height: '30.5%', width: 'auto'}}>
                 <FuncCarousel/>
             </View>
-            
+
+            <TextInput placeholder="Pesquisa" style={[ globalStyles.textInput, {marginTop: 20, borderRadius: 20, width: "55%", height: "5%"}]}>akodsoa</TextInput>
             <FlatList
-            data={FlatListTelaInicial.dados}
+            data={dados}
             keyExtractor={item => item.key}
-            renderItem={({item})=> {<FlatListTelaInicial data={item}/>}}            
+            renderItem={({item})=> <FlatListTelaInicial data={item}/>}         
             />
         </View>
     )
 }
+
+const dados = [{
+    key: 1,
+    nome: 'Pão de queijo',
+    unidade: 3,
+    preço: 9.00,
+    dateUltimoPedido: '12/2/23 07:42',
+    avaliacao: 4,
+  },{
+    key: 2,
+    nome: 'Pão de queijo',
+    unidade: 3,
+    preço: 9.00,
+    dateUltimoPedido: '12/2/23 07:42',
+    avaliacao: 4,
+  },{
+    key: 3,
+    nome: 'Pão de queijo',
+    unidade: 3,
+    preço: 9.00,
+    dateUltimoPedido: '12/2/23 07:42',
+    avaliacao: 4,
+  },{
+    key: 4,
+    nome: 'Pão de queijo',
+    unidade: 3,
+    preço: 9.00,
+    dateUltimoPedido: '12/2/23 07:42',
+    avaliacao: 4,
+  },{
+    key: 5,
+    nome: 'Pão de queijo',
+    unidade: 3,
+    preço: 9.00,
+    dateUltimoPedido: '12/2/23 07:42',
+    avaliacao: 4,
+  }]

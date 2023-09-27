@@ -10,7 +10,7 @@ export default function HistoricoDrawer(){
                 <Text style={[globalStyles.textTitle, {textAlign: 'left', marginLeft: 15,marginTop: 55, color:'white'}]}>Histórico</Text>
             </View>
             <FlatList 
-            data={FlatListProducts.dados}
+            data={dados}
             keyExtractor={item => item.key}
             renderItem={({item})=> 
             <FlatListProducts data={item}/>}
@@ -18,3 +18,40 @@ export default function HistoricoDrawer(){
         </View>
     );
 }
+
+const dados = [{
+    key: 1,
+    nome: 'Pão de queijo',
+    unidade: 3,
+    preço: 9.00,
+    dateUltimoPedido: '12/2/23 07:42',
+    avaliacao: 4,
+  },{
+    key: 2,
+    nome: 'Pão de queijo',
+    unidade: 3,
+    preço: 9.00,
+    dateUltimoPedido: '12/2/23 07:42',
+    avaliacao: 4,
+  },{
+    key: 3,
+    nome: 'Pão de queijo',
+    unidade: 3,
+    preço: 9.00,
+    dateUltimoPedido: '12/2/23 07:42',
+    avaliacao: 4,
+  },{
+    key: 4,
+    nome: 'Pão de queijo',
+    unidade: 3,
+    preço: 9.00,
+    dateUltimoPedido: '12/2/23 07:42',
+    avaliacao: 4,
+  },{
+    key: 5,
+    nome: 'Pão de queijo',
+    unidade: 3,
+    preço: 9.00,
+    dateUltimoPedido: '12/2/23 07:42',
+    avaliacao: 4,
+  }]

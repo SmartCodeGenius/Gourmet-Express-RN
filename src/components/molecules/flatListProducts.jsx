@@ -63,43 +63,6 @@ export default function Component1({data}) {
   )
 }
 
-const dados = [{
-  key: 1,
-  nome: 'Pão de queijo',
-  unidade: 3,
-  preço: 9.00,
-  dateUltimoPedido: '12/2/23 07:42',
-  avaliacao: 4,
-},{
-  key: 2,
-  nome: 'Pão de queijo',
-  unidade: 3,
-  preço: 9.00,
-  dateUltimoPedido: '12/2/23 07:42',
-  avaliacao: 4,
-},{
-  key: 3,
-  nome: 'Pão de queijo',
-  unidade: 3,
-  preço: 9.00,
-  dateUltimoPedido: '12/2/23 07:42',
-  avaliacao: 4,
-},{
-  key: 4,
-  nome: 'Pão de queijo',
-  unidade: 3,
-  preço: 9.00,
-  dateUltimoPedido: '12/2/23 07:42',
-  avaliacao: 4,
-},{
-  key: 5,
-  nome: 'Pão de queijo',
-  unidade: 3,
-  preço: 9.00,
-  dateUltimoPedido: '12/2/23 07:42',
-  avaliacao: 4,
-}]
-
 const styles = StyleSheet.create({
   Container: {
     marginRight: 30,
