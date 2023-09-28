@@ -29,11 +29,11 @@ export const globalStyles = StyleSheet.create({
       fontWeight: 'bold'
     },
     textInput: {
-      backgroundColor: 'rgba(7, 30, 34, 0.3)',
+      backgroundColor: '#F4F4F4',
       width: 330,
       height: 50,
-      borderRadius: 30,
-      borderWidth: 2,
+      borderRadius: 15,
+      borderWidth: 1,
       fontSize: 16,
       textAlign: 'center',
     },

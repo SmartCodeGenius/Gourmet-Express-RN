@@ -5,6 +5,7 @@ import ConfiguracaoDrawer from "../pages/Menu/configurações";
 import CarteiraDrawer from "../pages/Menu/carteira";
 import TelaInicial from "../pages/telaInicial";
 import HistoricoDrawer from "../pages/Menu/histórico";
+import Carrinho from "../pages/Menu/carrinho";
 
 import CustomDrawer from "../components/molecules/customDrawer";
 
@@ -21,9 +22,10 @@ export default function DrawerFunc(){
         headerShown: false,
       }}>
         <Drawer.Screen name="Home" component={TelaInicial} options={{ drawerActiveTintColor: '#fff', drawerActiveBackgroundColor: '#7C0B0B'}}/>
+        <Drawer.Screen name="Carrinho" component={Carrinho} options={{ drawerActiveTintColor: '#fff', drawerActiveBackgroundColor: '#7C0B0B'}}/>
+        <Drawer.Screen name="Carteira" component={CarteiraDrawer} options={{ drawerActiveTintColor: '#fff', drawerActiveBackgroundColor: '#7C0B0B'}}/>
         <Drawer.Screen name="Histórico" component={HistoricoDrawer} options={{ drawerActiveTintColor: '#fff', drawerActiveBackgroundColor: '#7C0B0B'}}/>
         <Drawer.Screen name="Configurações" component={ConfiguracaoDrawer} options={{ drawerActiveTintColor: '#fff', drawerActiveBackgroundColor: '#7C0B0B'}}/>
-        <Drawer.Screen name="Carteira" component={CarteiraDrawer} options={{ drawerActiveTintColor: '#fff', drawerActiveBackgroundColor: '#7C0B0B'}}/>
       </Drawer.Navigator>
   );
 }

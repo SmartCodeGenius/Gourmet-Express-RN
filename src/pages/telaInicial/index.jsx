@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TouchableHighlight, Image, FlatList, TextInput} from "react-native";
 import { DrawerActions } from "@react-navigation/native";
 import { globalStyles } from "../../components/atoms";
+import Template from '../../assets/icones/imagePlaceholder.png'
 import userIcon from '../../assets/icones/labelUsuario.png'
 import FuncCarousel from "../../components/molecules/carousel";
 import FlatListTelaInicial from "../../components/molecules/flatListTelaInicial";
@@ -28,7 +29,7 @@ export default function TelaInicial({navigation}){
                 <FuncCarousel/>
             </View>
 
-            <TextInput placeholder="Pesquisa" style={[ globalStyles.textInput, {marginTop: 20, borderRadius: 20, width: "55%", height: "5%"}]}>akodsoa</TextInput>
+            <TextInput placeholder="Pesquisa" style={[ globalStyles.textInput, {marginTop: 20, borderRadius: 15, width: "55%", height: "5%"}]}></TextInput>
             <FlatList
             data={dados}
             keyExtractor={item => item.key}
@@ -39,38 +40,30 @@ export default function TelaInicial({navigation}){
 }
 
 const dados = [{
-    key: 1,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  },{
-    key: 2,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  },{
-    key: 3,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  },{
-    key: 4,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  },{
-    key: 5,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  }]
+  key: 1,
+  nome: 'Pão de queijo',
+  unidade: 12,
+  preço: 9.00,
+  dateUltimoPedido: '12/2/23 07:42',
+  avaliacao: 4,
+  ingrediente: 'água,  óleo , leite , sal, polvilho azedo, ovos e parmesão ralado.',
+  img: Template
+},{
+  key: 2,
+  nome: 'Pastel de carne',
+  unidade: 11,
+  preço: 16.00,
+  dateUltimoPedido: '4/2/23 09:01AM',
+  avaliacao: 3,
+  ingrediente: "massa de pastel, carne bovina, óleo, cebola, dentes de alho, cheiro verde, carne e sal.",
+  img: Template
+},    
+  {key: 3,
+  nome: 'Doguinho',
+  unidade: 17,
+  preço: 16.00,
+  dateUltimoPedido: '4/2/23 16:06',
+  avaliacao: 5,
+  ingrediente: 'massa, salsicha, óleo, cebola, alho, cheiro verde, e sal.',
+  img: Template
+},]
