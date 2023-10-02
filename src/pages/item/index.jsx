@@ -1,10 +1,26 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableHighlight, TextInput, ScrollView} from "react-native";
 import { globalStyles } from "../../components/atoms";
+import minus from "../../assets/icones/minus.svg"
+import plus from "../../assets/icones/plus.svg"
+import { useState } from "react";
 
 export default function Item({route, navigation}){
     const { nome, preço, img, ingrediente} = route.params;
+    const [quantia, setQuantia] = useState(0);
+
+    function diminuiitem(){
+        if (quantia == 0){
+          return
+        }else{return setQuantia(quantia-1)}
+    }
+
+    function aumentaitem(){
+      return setQuantia(quantia + 1);
+  }
+
     return(
+      <ScrollView style={{flex: 1}} contentContainerStyle={{flexGrow: 1}}>
         <View style={globalStyles.container}>
             <View style={globalStyles.containerHeader}>
                 <Text style={{color: 'white', textAlign: 'center', paddingTop: 50, fontSize: 27, fontWeight: 'bold'}}>{nome}</Text>
@@ -47,8 +63,31 @@ export default function Item({route, navigation}){
 
       <View style={{marginTop: 30}}>
         <Text style={{fontSize: 22, fontWeight: 'bold', color: 'black', textAlign: 'center'}}>Ingredientes</Text>
-        <Text style={{textAlign: 'center', paddingHorizontal: 100}}>{ingrediente}</Text>
+        <Text style={{textAlign: 'center', paddingHorizontal: 100, fontSize: 18}}>{ingrediente}</Text>
       </View>
+
+      <View style={{marginTop: 50, alignItems: 'center', alignSelf: 'center'}}>
+        <Text style={{fontSize: 24, paddingHorizontal: 90, textAlign: 'center', fontWeight: "700"}}>Adicionar ao carrinho</Text>
+        <View style={{flexDirection: 'row', backgroundColor: "#7C0B0B", height: 50, width: "auto", borderRadius: 102}}>
+
+          <TouchableHighlight onPress={() => {diminuiitem()}} underlayColor={'white'} style={{backgroundColor:'#rgba(231, 64, 64, 0.5)', marginLeft: 5, marginRight: 25, marginTop: 5,alignContent: 'center', borderTopLeftRadius: 30, borderBottomLeftRadius: 30, width: 40, height: 40,}}>
+            <Image source={minus} style={{width: 30, marginTop: "45%", marginLeft: 5}}></Image>
+          </TouchableHighlight>
+          
+          <Text style={{fontSize: 32, color: 'white', marginTop: 3}}>{quantia}</Text>
+
+          <TouchableHighlight onPress={() => {aumentaitem()}} underlayColor={'white'} style={{marginLeft: 30, marginRight: 5, backgroundColor: '#rgba(231, 64, 64, 0.5)', width: 40, height: 40, marginTop: 5, borderTopRightRadius: 30, borderBottomRightRadius: 30}}>
+            <Image source={plus} style={{alignSelf: "center", marginTop: 5, marginRight: 2, width: 30, height: 30}}></Image>
+          </TouchableHighlight>
         </View>
+
+        <View style={{marginTop: 20}}>
+          <Text style={{textAlign: 'center'}}>Observações</Text>
+          <TextInput style={[globalStyles.textInput, {width: 300, textAlign: 'left', textAlignVertical: 'center'}]}></TextInput>
+        </View>
+
+      </View>
+    </View>
+    </ScrollView>
     )
 }
