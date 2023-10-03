@@ -5,7 +5,7 @@ import { globalStyles } from "../../components/atoms";
 import userIcon from '../../assets/icones/labelUsuario.png'
 import FuncCarousel from "../../components/molecules/carousel";
 import FlatListTelaInicial from "../../components/molecules/flatListTelaInicial";
-import dados from "../../db/comidas.json"
+import dados from "../../db/comidas"
 
 export default function TelaInicial({navigation}){
     return(

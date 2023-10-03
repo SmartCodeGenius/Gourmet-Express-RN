@@ -6,7 +6,7 @@
     "dateUltimoPedido": "12/2/23 07:42",
     "avaliacao": 4,
     "ingrediente": "água,  óleo , leite , sal, polvilho azedo, ovos e parmesão ralado.",
-    "img": "../assets/icones/pastelCarne.png"
+    "img": "imgPao"
   },{
     "key": 2,
     "nome": "Pastel de carne",
@@ -15,7 +15,7 @@
     "dateUltimoPedido": "4/2/23 09:01AM",
     "avaliacao": 3,
     "ingrediente": "massa de pastel, carne bovina, óleo, cebola, dentes de alho, cheiro verde, carne e sal.",
-    "img": "../assets/icones/pastelCarne.png"
+    "img": "imgPastel"
   },{
     "key": 3,
     "nome": "Doguinho",
@@ -24,5 +24,5 @@
     "dateUltimoPedido": "4/2/23 16:06",
     "avaliacao": 5,
     "ingrediente": "massa, salsicha, óleo, cebola, alho, cheiro verde, e sal.",
-    "img": "../../assets/icones/pastelCarne.png"
+    "img": "imgDoguinho"
   }]

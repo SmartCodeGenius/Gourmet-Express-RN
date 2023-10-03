@@ -1,31 +1,34 @@
 import React from "react";
 import { View, Text, Image, TouchableHighlight, TextInput, ScrollView} from "react-native";
 import { globalStyles } from "../../components/atoms";
+import image from '../../db/image'
 import minus from "../../assets/icones/minus.svg"
 import plus from "../../assets/icones/plus.svg"
 import { useState } from "react";
 
 export default function Item({route, navigation}){
-    const { nome, preço, img, ingrediente} = route.params;
+    const { nome, preço, img, ingrediente, unidade} = route.params;
     const [quantia, setQuantia] = useState(0);
 
-    function diminuiitem(){
-        if (quantia == 0){
-          return
-        }else{return setQuantia(quantia-1)}
-    }
+  function diminuiitem(){
+      if (quantia === 0){
+        return
+      }else{return setQuantia(quantia-1)}
+  }
 
-    function aumentaitem(){
-      return setQuantia(quantia + 1);
+  function aumentaitem(){
+    if(unidade === quantia){
+        return
+    }else{return setQuantia(quantia + 1);}
   }
 
     return(
       <ScrollView style={{flex: 1}} contentContainerStyle={{flexGrow: 1}}>
         <View style={globalStyles.container}>
             <View style={globalStyles.containerHeader}>
-                <Text style={{color: 'white', textAlign: 'center', paddingTop: 50, fontSize: 27, fontWeight: 'bold'}}>{nome}</Text>
+                <Text style={{color: 'white', textAlign: 'center', paddingTop: 50, fontSize: 35, fontWeight: 'bold'}}>{nome}</Text>
             </View>
-            <Image style={{width: 322, height: 184, borderRadius: 10, marginTop: 15}} source={img}></Image>
+            <Image style={{width: 322, height: 184, borderRadius: 10, marginTop: 15}} source={image[img]}></Image>
         
         <View style={{marginTop: 10, borderRadius: 145, backgroundColor: "#7C0B0B", flexDirection: 'row', width: 274, height: 42, justifyContent: 'center'}}>
         <Image
