@@ -7,7 +7,7 @@ import dados from '../../db/comidas'
 import { useNavigation } from '@react-navigation/native';
 
 const SLIDER_WIDTH = Dimensions.get("window").width
-const ITEM_WIDTH = SLIDER_WIDTH * 0.88
+const ITEM_WIDTH = SLIDER_WIDTH * 0.93
 
 export default function FuncCarousel(){
     const navigation = useNavigation();

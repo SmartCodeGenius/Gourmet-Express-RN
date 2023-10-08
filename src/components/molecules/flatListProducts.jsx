@@ -13,9 +13,9 @@ export default function Component1({data}) {
                 uri: "https://firebasestorage.googleapis.com/v0/b/unify-v3-copy.appspot.com/o/x30kk9d3a5-188%3A316?alt=media&token=1f614f3b-c895-4dce-9fe0-8d0826b4134f",
               }}
             />
-            <View style={styles.Group766}>
-              <Text style={styles.PODeQueijo3Un}>Pão de queijo, 3 Un.</Text>
-              <Text style={styles.R900}>R$: 9,00</Text>
+            <View style={[styles.Group766, {marginLeft: '2%'}]}>
+              <Text style={styles.PODeQueijo3Un}>{data.nome}, {data.unidade} Un.</Text>
+              <Text style={styles.R900}>R$: {data.preço}</Text>
               <Text style={styles._122230742}>12/2/23 07:42</Text>
             </View>
           </View>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   Container4: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     alignItems: "flex-end",
     width: "100%",
     height: "100%",
@@ -104,7 +104,6 @@ const styles = StyleSheet.create({
   Group766: {
     display: "flex",
     flexDirection: "column",
-    right: 10,
     top: 5,
     height: "100%",
     boxSizing: "border-box",

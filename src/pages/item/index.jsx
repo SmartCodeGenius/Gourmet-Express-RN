@@ -7,8 +7,9 @@ import plus from "../../assets/icones/plus.svg"
 import { useState } from "react";
 
 export default function Item({route, navigation}){
-    const { nome, preço, img, ingrediente, unidade} = route.params;
+    const { nome, preço, img, ingrediente, unidade, key} = route.params;
     const [quantia, setQuantia] = useState(0);
+    const [carrinhoQuantia, setCarrinhoQuantia] = useState(0);
 
   function diminuiitem(){
       if (quantia === 0){
@@ -70,7 +71,6 @@ export default function Item({route, navigation}){
       </View>
 
       <View style={{marginTop: 50, alignItems: 'center', alignSelf: 'center'}}>
-        <Text style={{fontSize: 24, paddingHorizontal: 90, textAlign: 'center', fontWeight: "700"}}>Adicionar ao carrinho</Text>
         <View style={{flexDirection: 'row', backgroundColor: "#7C0B0B", height: 50, width: "auto", borderRadius: 102}}>
 
           <TouchableHighlight onPress={() => {diminuiitem()}} underlayColor={'white'} style={{backgroundColor:'#rgba(231, 64, 64, 0.5)', marginLeft: 5, marginRight: 25, marginTop: 5,alignContent: 'center', borderTopLeftRadius: 30, borderBottomLeftRadius: 30, width: 40, height: 40,}}>
@@ -84,7 +84,11 @@ export default function Item({route, navigation}){
           </TouchableHighlight>
         </View>
 
-        <View style={{marginTop: 20}}>
+        <TouchableHighlight onPress={() => alert('Sem sistema de carrinho (ainda)')} underlayColor={'white'} style={[globalStyles.button, {marginTop: '2%'}]}>
+          <Text style={{fontSize: 20, textAlign: 'center', fontWeight: "700", color: 'white'}}>Adicionar ao carrinho</Text>
+        </TouchableHighlight>
+
+        <View style={{marginTop: '5%', marginBottom: '10%'}}>
           <Text style={{textAlign: 'center'}}>Observações</Text>
           <TextInput style={[globalStyles.textInput, {width: 300, textAlign: 'left', textAlignVertical: 'center'}]}></TextInput>
         </View>

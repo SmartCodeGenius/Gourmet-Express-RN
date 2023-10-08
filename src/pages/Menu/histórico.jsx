@@ -2,6 +2,7 @@ import React from "react";
 import {Text, View, FlatList} from 'react-native';
 import { globalStyles } from "../../components/atoms";
 import FlatListProducts from "../../components/molecules/flatListProducts";
+import dados from '../../db/comidas.json'
 
 export default function HistoricoDrawer(){
     return(
@@ -18,40 +19,3 @@ export default function HistoricoDrawer(){
         </View>
     );
 }
-
-const dados = [{
-    key: 1,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  },{
-    key: 2,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  },{
-    key: 3,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  },{
-    key: 4,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  },{
-    key: 5,
-    nome: 'Pão de queijo',
-    unidade: 3,
-    preço: 9.00,
-    dateUltimoPedido: '12/2/23 07:42',
-    avaliacao: 4,
-  }]

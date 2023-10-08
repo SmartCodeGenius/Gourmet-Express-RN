@@ -10,10 +10,10 @@ import dados from "../../db/comidas"
 export default function TelaInicial({navigation}){
     return(
         <View style={globalStyles.container}>
-            <View style={{marginTop: 50, flexDirection: "row", alignSelf: 'flex-end'}}>
-                <View style={{marginRight: "36%", flexDirection: 'row'}}>
+            <View style={{marginTop: '15%', flexDirection: "row", alignSelf: 'flex-end'}}>
+                <View style={{marginRight: "34%", flexDirection: 'row'}}>
                     <Image source={userIcon}></Image>
-                    <View style={{marginLeft: 10, flexDirection: 'column', marginTop: 10}}>                    
+                    <View style={{marginLeft: '3%', flexDirection: 'column', marginTop: "3.5%"}}>                    
                         <Text style={{color: '#7C0B0B', fontSize: 20}}>Usuario</Text>
                         <Text style={{color: '#7C0B0B', fontSize: 20}}>R$: 50,00</Text>
                     </View>
@@ -25,12 +25,13 @@ export default function TelaInicial({navigation}){
             </View>
 
             <Text style={{color: '#7C0B0B', fontSize: 35, marginTop: 40, marginBottom: 20}}>Restaurante Fulano</Text>
-            <View style={{height: '30.5%', width: 'auto'}}>
+            <View style={{height: '36%', width: 'auto'}}>
                 <FuncCarousel/>
             </View>
 
-            <TextInput placeholder="Pesquisa" style={[ globalStyles.textInput, {marginTop: 20, borderRadius: 15, width: "55%", height: "5%"}]}></TextInput>
+            <TextInput placeholder="Pesquisa" style={[ globalStyles.textInput, {marginBottom:'2%', marginTop: '1%', borderRadius: 15, width: "55%", height: "5%"}]}></TextInput>
             <FlatList
+            nestedScrollEnabled
             data={dados}
             keyExtractor={item => item.key}
             renderItem={({item})=> <FlatListTelaInicial data={item}/>}         

@@ -4,7 +4,6 @@ export const globalStyles = StyleSheet.create({
     container: {
       flex: 1,
       alignItems: 'center',
-      backgroundColor: 'white',
     },
     containerForm:{
       flex: 1,

@@ -4,8 +4,8 @@ import {Text, View, ScrollView,TextInput, StyleSheet, TouchableHighlight} from '
 export default function ConfiguracaoDrawer(){
     return(
     <ScrollView style={{flex: 1}} contentContainerStyle={{flexGrow: 1}}>
-        <Text style={[styles.textTitle, {marginTop: 65}]}>Configurações</Text>
-        <View style={{flexDirection: "column", marginTop: 50, marginLeft: "8%"}}>
+        <Text style={[styles.textTitle, {marginTop: "20%"}]}>Configurações</Text>
+        <View style={{flexDirection: "column", marginTop: 50, marginLeft: "4%"}}>
             <View style={styles.Container}>
                 <Text style={styles.titleInput}>Nome de usuário</Text>
                 <TextInput style={styles.textInput} placeholder="Nome de usuário"></TextInput>
