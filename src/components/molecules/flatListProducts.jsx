@@ -1,7 +1,11 @@
 import React from "react"
+import image from "../../db/image.js"
 import { StyleSheet, Image, Text, View, ImageBackground, TouchableHighlight } from "react-native"
+import { useNavigation } from "@react-navigation/native"
 
 export default function Component1({data}) {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.Container}>
       <View style={styles.Container2}>
@@ -9,9 +13,7 @@ export default function Component1({data}) {
           <View style={styles.Container4}>
             <Image
               style={styles.Image2}
-              source={{
-                uri: "https://firebasestorage.googleapis.com/v0/b/unify-v3-copy.appspot.com/o/x30kk9d3a5-188%3A316?alt=media&token=1f614f3b-c895-4dce-9fe0-8d0826b4134f",
-              }}
+              source={image[data.img]}
             />
             <View style={[styles.Group766, {marginLeft: '2%'}]}>
               <Text style={styles.PODeQueijo3Un}>{data.nome}, {data.unidade} Un.</Text>
@@ -56,7 +58,7 @@ export default function Component1({data}) {
           </View>
         </View>
       </View>
-        <TouchableHighlight underlayColor={'white'} style={styles.Group63}>
+        <TouchableHighlight onPress={() => navigation.navigate('Item', {nome: data.nome, preço: data.preço, img: data.img, ingrediente: data.ingrediente, unidade: data.unidade})} underlayColor={'white'} style={styles.Group63}>
             <Text style={styles.Comprar}>Comprar</Text>
         </TouchableHighlight>
     </View>

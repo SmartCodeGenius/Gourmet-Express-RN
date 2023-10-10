@@ -2,8 +2,6 @@ import React from "react";
 import { globalStyles } from "../../components/atoms";
 import { View, Text, Image, TouchableHighlight, TouchableOpacity} from "react-native";
 import ContainerRestaurant from "../../components/molecules/ContainerRestaurant"
-import { DrawerActions } from "@react-navigation/native";
-
 
 export default function ListaRestaurantes({navigation}){
     return(

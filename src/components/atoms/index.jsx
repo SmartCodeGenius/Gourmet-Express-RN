@@ -4,11 +4,12 @@ export const globalStyles = StyleSheet.create({
     container: {
       flex: 1,
       alignItems: 'center',
+      backgroundColor: 'white',
     },
     containerForm:{
       flex: 1,
       marginBottom: 250,
-      alignItems: 'center'
+      alignItems: 'center',
     },
     button:{
       backgroundColor: '#7C0B0B',
