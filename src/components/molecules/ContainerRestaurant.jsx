@@ -1,65 +1,29 @@
-import React from "react";
-import {Image, Text, View, FlatList} from "react-native";
+import { Image, Text, View} from "react-native";
+import React, { useEffect, useState } from 'react';
 import { globalStyles } from "../atoms";
+import image from '../../db/image'
 
-export default function ContainerRestaurant(){
-    return(
-        <View>    
-        <FlatList 
-            nestedScrollEnabled
-            style={{height: 500, flexGrow: 0, marginTop: 15}}
-            data={restaurantes}
-            keyExtractor={item=>item.cnpj}
-            renderItem={({item})=> (
-                <View style={{flexDirection: "row", marginTop: 10, alignContent: "space-between"}}>
-                <Image source={require('../../assets/icones/imagePlaceholder.png')} style={{width: 114, height: 114, marginLeft: 10, borderRadius: 20}}></Image>
-                    <View style={{marginLeft: 10}}>
-                        <Text style={[globalStyles.fontBigBold, {marginBottom: 5}]}>{item.nome}</Text>
-                        <Text>{item.nota} ⭐⭐⭐⭐⭐</Text>
-                        <Text style={{paddingRight: 130}}>{item.desc}</Text>
-                    </View>
+export default function ContainerRestaurant({ data }) {
+    const [estrelas, setEstrelas] = useState("");
+
+    function adicionarEstrelas(){
+        for (let index = 0; index < data.nota; index++) {
+            useEffect(() =>{
+                setEstrelas(estrelas+"⭐")
+            }, [data.nota])            
+        }
+        return estrelas
+    }
+    return (
+        <View>
+            <View style={{ flexDirection: "row", alignItems: "center", alignSelf: 'center', width: '95%', borderBottomWidth: 1, paddingBottom: 20, paddingTop: 20 }}>
+                <Image source={image[data.imagem]} style={{ width: 114, height: 114, marginLeft: 10, borderRadius: 20 }}></Image>
+                <View style={{ marginLeft: 10 }}>
+                    <Text style={[globalStyles.fontBigBold, { marginBottom: 5 }]}>{data.name}</Text>
+                    <Text>{data.nota}{adicionarEstrelas()}</Text>
+                    <Text style={{ paddingRight: 130 }}>{data.description}</Text>
                 </View>
-            )}
-        />
+            </View>
         </View>
     );
 }
-
-const restaurantes = [{
-    cnpj: 12345678910234,
-    nome: "Restaurante Recanto",
-    nota: 4.5,
-    desc: "(108) · Restaurante São José - SC Abre em breve às 11:00 Refeição no local·Para viagem·Entrega sem contato"
-},
-{
-    cnpj: 12131415161923,
-    nome: "Restaurante do Fulano",
-    nota: 4.5,
-    desc: "(91) · Restaurante R. Joacir dos Passos, 18 Abre em breve às 11:00 Refeição no local·Para viagem·Entrega sem contato"
-},
-{
-    cnpj: 3,
-    nome: "Restaurante do Fulano",
-    nota: 4.5,
-    desc: "(91) · Restaurante R. Joacir dos Passos, 18 Abre em breve às 11:00 Refeição no local·Para viagem·Entrega sem contato"
-},
-{
-    cnpj: 4,
-    nome: "Restaurante do Fulano",
-    nota: 4.5,
-    desc: "(91) · Restaurante R. Joacir dos Passos, 18 Abre em breve às 11:00 Refeição no local·Para viagem·Entrega sem contato"
-},
-{
-    cnpj: 5,
-    nome: "Restaurante do Fulano",
-    nota: 4.5,
-    desc: "(91) · Restaurante R. Joacir dos Passos, 18 Abre em breve às 11:00 Refeição no local·Para viagem·Entrega sem contato"
-},
-{
-    cnpj: 6,
-    nome: "Restaurante do Fulano",
-    nota: 4.5,
-    desc: "(91) · Restaurante R. Joacir dos Passos, 18 Abre em breve às 11:00 Refeição no local·Para viagem·Entrega sem contato"
-},
-
-]

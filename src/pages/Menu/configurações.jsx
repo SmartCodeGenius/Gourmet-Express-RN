@@ -5,7 +5,7 @@ export default function ConfiguracaoDrawer(){
     return(
     <ScrollView style={{flex: 1}} contentContainerStyle={{flexGrow: 1}}>
         <Text style={[styles.textTitle, {marginTop: "20%"}]}>Configurações</Text>
-        <View style={{flexDirection: "column", marginTop: 50, marginLeft: "4%"}}>
+        <View style={{alignItems: 'center', flexDirection: "column", marginTop: 50}}>
             <View style={styles.Container}>
                 <Text style={styles.titleInput}>Nome de usuário</Text>
                 <TextInput style={styles.textInput} placeholder="Nome de usuário"></TextInput>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         borderRadius: 30,
     },
     buttonFim:{
-        marginTop: 30,
+        marginTop: "2%",
         alignSelf: 'center',
         width: 254,
         height: 45,
