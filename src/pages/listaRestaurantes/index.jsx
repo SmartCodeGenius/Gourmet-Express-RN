@@ -1,6 +1,6 @@
 import React from "react";
 import { globalStyles } from "../../components/atoms";
-import { View, Text, Image, TouchableHighlight, TouchableOpacity, FlatList} from "react-native";
+import { View, Text, Image, TouchableOpacity, FlatList} from "react-native";
 import ContainerRestaurant from "../../components/molecules/ContainerRestaurant"
 import Restaurantes from '../../db/restaurante.json'
 

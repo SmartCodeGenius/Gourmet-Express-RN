@@ -10,13 +10,16 @@ const SLIDER_WIDTH = Dimensions.get("window").width
 const ITEM_WIDTH = SLIDER_WIDTH * 0.93
 
 export default function FuncCarousel(){
+    const dbComidas = require('../../pages/telaInicial/')
     const navigation = useNavigation();
+
     return(
         <Carousel
-        data={dados}
+        data={dados[dbComidas]}
         sliderWidth={SLIDER_WIDTH}
         itemWidth={ITEM_WIDTH}
         useScrollView={true}
+        removeClippedSubviews={false}
         renderItem={({item}) => {
             return(
             <View style={{backgroundColor: '#7C0B0B', width: 'auto', height: 245, borderRadius: 30}}>

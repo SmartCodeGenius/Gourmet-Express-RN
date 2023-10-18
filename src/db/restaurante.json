@@ -5,7 +5,8 @@
     "description": "Refeição no local·Para viagem·Entrega sem contato",
     "localiztaion": "São José - SC",
     "imagem": "restauranteRecantoImagem",
-    "nota": "4"
+    "nota": "2",
+    "comidas_Id": "comidasRecanto" 
 },
 {
     "name": "Restaurante do Fulano",
@@ -14,5 +15,6 @@
     "description": "Refeição no local·Para viagem·Entrega sem contato",
     "localiztaion": "São José - SC",
     "imagem": "restaurantefulanoImagem",
-    "nota": "4"
+    "nota": "4",
+    "comidas_Id": "comidasFulano"
 }]
