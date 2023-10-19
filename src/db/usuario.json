@@ -1,3 +1,10 @@
-{
-    
-}
+[{
+    "user_id": "1",
+    "user_name": "Arthur",
+    "user_email": "Arthur@gmail.com",
+    "user_telefone": "489123456789",
+    "user_dataNasc": "11/09/2001",
+    "user_cpf": "12345678911",
+    "carteira_Id": "1",
+    "carrinho_Id": "1"
+}]

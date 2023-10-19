@@ -1,17 +1,45 @@
 import React from "react";
-import { View, Text, TouchableHighlight, Image, FlatList, TextInput } from "react-native";
+import { Pressable, View, Text, TouchableHighlight, Image, FlatList, TextInput, Dimensions } from "react-native";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
+import Carousel from "react-native-snap-carousel";
 import { globalStyles } from "../../components/atoms";
+import image from '../../db/image'
 import userIcon from '../../assets/icones/labelUsuario.png'
-import FuncCarousel from "../../components/molecules/carousel";
 import FlatListTelaInicial from "../../components/molecules/flatListTelaInicial";
 import dados from "../../db/comidas"
 
-export default function TelaInicial({route}){
+export default function TelaInicial({ route }) {
     const navigation = useNavigation();
-    const {nomeRestaurante, dbComidas} = route.params;
-    module.exports = {dbComidas};
+    const { nomeRestaurante, dbComidas } = route.params;
+    module.exports = { dbComidas };
+
+    // Criação do carousel
+    const FuncCarousel = () => {
+        const SLIDER_WIDTH = Dimensions.get("window").width
+        const ITEM_WIDTH = SLIDER_WIDTH * 0.93
         return (
+            <Carousel
+                data={dados[dbComidas]}
+                sliderWidth={SLIDER_WIDTH}
+                itemWidth={ITEM_WIDTH}
+                useScrollView={true}
+                removeClippedSubviews={false}
+                renderItem={({ item }) => {
+                    return (
+                        <View style={{ backgroundColor: '#7C0B0B', width: 'auto', height: 245, borderRadius: 30 }}>
+                            <Text style={[globalStyles.textTitle, { fontSize: 24, fontWeight: 'bold', color: 'white', marginTop: 10 }]}>{item.nome}</Text>
+                            <Pressable onPress={() => navigation.navigate('Item', { nome: item.nome, preço: item.preço, img: item.img, ingrediente: item.ingrediente, unidade: item.unidade, nota:item.avaliacao })}>
+                                <Image source={image[item.img]} style={{ height: 127, width: 306, borderRadius: 30, alignSelf: 'center', marginTop: '2.5%' }} />
+                            </Pressable>
+                            <Text style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', color: 'white', marginTop: '3%' }}>Por R${item.preço}!</Text>
+                        </View>
+                    )
+                }}
+            />
+        )
+    }
+    // Código da pagina
+    return (
         <View style={globalStyles.container}>
             <View style={{ marginTop: '15%', flexDirection: "row", alignSelf: 'flex-end' }}>
                 <View style={{ marginRight: "34%", flexDirection: 'row' }}>
