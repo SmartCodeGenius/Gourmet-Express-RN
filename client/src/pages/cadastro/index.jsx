@@ -34,7 +34,7 @@ export default function Index({ setAuth }) {
 
             await AsyncStorage.setItem('token', parseRes.token)
             setAuth(true)
-            navigation.navigate('listaRestaurantes')
+            // navigation.navigate('listaRestaurantes')
         } catch (err) {
             console.error(err.message);
             setAuth(false);
@@ -53,7 +53,7 @@ export default function Index({ setAuth }) {
                     <TextInput style={[globalStyles.textInput, { marginBottom: 30 }]} onChangeText={(text) => onChange('senha', text)} placeholder='Senha' secureTextEntry={true}></TextInput>
                     <TextInput style={[globalStyles.textInput, { marginBottom: 30 }]} placeholder='Confirmar senha' secureTextEntry={true}></TextInput>
 
-                    <TouchableOpacity underlayColor={'white'} style={[globalStyles.button, { alignSelf: 'center', marginTop: 30 }]} onPress={(e) => onSubmitForm(e)}>
+                    <TouchableOpacity underlayColor={'white'} style={[globalStyles.button, { alignSelf: 'center', marginTop: 30 }]} onPress={() => navigation.navigate('RouteAuth')}>
                         <Text style={{ color: 'white', fontSize: 28, fontWeight: "bold" }}>Próximo</Text>
                     </TouchableOpacity>
                 </View>

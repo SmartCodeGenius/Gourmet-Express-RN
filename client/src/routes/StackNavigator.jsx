@@ -29,8 +29,8 @@ export default function Routes() {
         ) : (<Stack.Screen
           name="RouteAuth"
           component={RouteAuth}
-          options={{ headerShown: false, animation: 'fade' }}/>
-          )}
+          options={{ headerShown: false, animation: 'fade' }} />
+        )}
 
         <Stack.Screen
           name="login"
@@ -45,6 +45,10 @@ export default function Routes() {
           component={TelaConfirmacao}
           options={{ headerShown: false, animation: 'fade' }}
         />
+        <Stack.Screen
+          name="RouteAuth"
+          component={RouteAuth}
+          options={{ headerShown: false, animation: 'fade' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

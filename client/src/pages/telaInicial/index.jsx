@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Pressable, View, Text, TouchableHighlight, Image, FlatList, TextInput, Dimensions } from "react-native";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
 import Carousel from "react-native-snap-carousel";
@@ -10,8 +10,30 @@ import dados from "../../db/comidas"
 
 export default function TelaInicial({ route }) {
     const navigation = useNavigation();
-    const { nomeRestaurante, dbComidas } = route.params;
-    module.exports = { dbComidas };
+    const { nome_estabelecimento, id } = route.params;
+
+    const [comidas, setComidas] = useState([]);
+    const getComidas = async () => {
+        try {
+            const response = await fetch('http://10.0.2.2:5000/produtos',{
+                method: 'GET',
+                headers: {'Estabelecimento-ID': id}
+            });
+            
+            const parseRes = await response.json();
+            setComidas(parseRes)
+            console.log(parseRes)
+            
+        } catch (err) {
+            console.error(err.message)
+        }
+    }
+
+    useEffect(() => {
+      getComidas()
+    }, [id])
+    
+    
 
     // Criação do carousel
     const FuncCarousel = () => {
@@ -19,7 +41,7 @@ export default function TelaInicial({ route }) {
         const ITEM_WIDTH = SLIDER_WIDTH * 0.93
         return (
             <Carousel
-                data={dados[dbComidas]}
+                data={comidas}
                 sliderWidth={SLIDER_WIDTH}
                 itemWidth={ITEM_WIDTH}
                 useScrollView={true}
@@ -28,10 +50,10 @@ export default function TelaInicial({ route }) {
                     return (
                         <View style={{ backgroundColor: '#7C0B0B', width: 'auto', height: 245, borderRadius: 30 }}>
                             <Text style={[globalStyles.textTitle, { fontSize: 24, fontWeight: 'bold', color: 'white', marginTop: 10 }]}>{item.nome}</Text>
-                            <Pressable onPress={() => navigation.navigate('Item', { nome: item.nome, preço: item.preço, img: item.img, ingrediente: item.ingrediente, unidade: item.unidade, nota:item.avaliacao })}>
+                            <Pressable onPress={() => navigation.navigate('Item', { nome: item.nome_produto, preço: item.preco_produto, img: item.img, ingrediente: item.ingredientes_produto, nota: item.avaliacao })}>
                                 <Image source={image[item.img]} style={{ height: 127, width: 306, borderRadius: 30, alignSelf: 'center', marginTop: '2.5%' }} />
                             </Pressable>
-                            <Text style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', color: 'white', marginTop: '3%' }}>Por R${item.preço}!</Text>
+                            <Text style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', color: 'white', marginTop: '3%' }}>Por R${item.preco_produto}!</Text>
                         </View>
                     )
                 }}
@@ -55,7 +77,7 @@ export default function TelaInicial({ route }) {
                 </TouchableHighlight>
             </View>
 
-            <Text style={{ color: '#7C0B0B', fontSize: 35, marginTop: 40, marginBottom: 20 }}>{nomeRestaurante}</Text>
+            <Text style={{ color: '#7C0B0B', fontSize: 35, marginTop: 40, marginBottom: 20 }}>{nome_estabelecimento}</Text>
             <View style={{ height: '36%', width: 'auto' }}>
                 <FuncCarousel />
             </View>
@@ -63,8 +85,8 @@ export default function TelaInicial({ route }) {
             <TextInput placeholder="Pesquisa" style={[globalStyles.textInput, { marginBottom: '2%', marginTop: '1%', borderRadius: 15, width: "55%", height: "5%" }]}></TextInput>
             <FlatList
                 nestedScrollEnabled
-                data={dados[dbComidas]}
-                keyExtractor={item => item.key}
+                data={comidas}
+                keyExtractor={item => item.id_produto}
                 renderItem={({ item }) => <FlatListTelaInicial data={item} />}
             />
         </View>

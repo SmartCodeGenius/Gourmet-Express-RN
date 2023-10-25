@@ -5,7 +5,7 @@ import image from '../../db/image'
 import { useNavigation } from "@react-navigation/native";
 
 export default function ContainerRestaurant({ data }) {
-    const [defaultRating, setDefaultRating] = useState(data.nota);
+    const [defaultRating, setDefaultRating] = useState(5);
     const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5])
     const navigation = useNavigation();
 
@@ -14,7 +14,7 @@ export default function ContainerRestaurant({ data }) {
 
     const CustomBar = () => {
         return (
-            <View style={{ flexDirection: "row", width: '27%', padding: 6, backgroundColor: '#7C0B0B', borderRadius: 15 }}>
+            <View style={{ flexDirection: "row", alignSelf: 'flex-start', width: 'auto', padding: 6, backgroundColor: '#7C0B0B', borderRadius: 15 }}>
                 {
                     maxRating.map((item, key) => {
                         return (
@@ -36,14 +36,14 @@ export default function ContainerRestaurant({ data }) {
         <View>
             <TouchableOpacity onPress={() => navigation.navigate('DrawerLayout', {
                 screen: 'Home',
-                params: { nomeRestaurante: data.name, dbComidas: data.comidas_Id}
+                params: { nome_estabelecimento: data.nome_estabelecimento, id: data.id_estabelecimento}
             })}>
                 <View style={{ flexDirection: "row", alignItems: "center", alignSelf: 'center', width: '95%', borderBottomWidth: 1, paddingBottom: 20, paddingTop: 20 }}>
                     <Image source={image[data.imagem]} style={{ width: 114, height: 114, marginLeft: 10, borderRadius: 20 }}></Image>
-                    <View style={{ marginLeft: 10 }}>
-                        <Text style={[globalStyles.fontBigBold, { marginBottom: 5 }]}>{data.name}</Text>
+                    <View style={{ marginLeft: 10}}>
+                        <Text style={[globalStyles.fontBigBold, { marginBottom: 5 }]}>{data.nome_estabelecimento}</Text>
                         <CustomBar />
-                        <Text style={{ paddingRight: 130 }}>{data.description}</Text>
+                        <Text style={{ paddingRight: 130 }}>{data.descricao_estabelecimento}</Text>
                     </View>
                 </View>
             </TouchableOpacity>

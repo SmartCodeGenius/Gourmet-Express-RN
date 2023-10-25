@@ -18,9 +18,7 @@ export default function Item({ route, navigation }) {
   }
 
   function aumentaitem() {
-    if (unidade === quantia) {
-      return
-    } else { return setQuantia(quantia + 1); }
+    return setQuantia(quantia + 1);
   }
   // Setando variaveis para sistema de review
   const [defaultRating, setDefaultRating] = useState(0);
@@ -31,7 +29,7 @@ export default function Item({ route, navigation }) {
 
   const CustomBar = () => {
     return (
-      <View style={{alignSelf: 'center', flexDirection: "row", width: '27%', backgroundColor: '#7C0B0B', marginRight: '25%'}}>
+      <View style={{ alignSelf: 'center', flexDirection: "row", width: '27%', backgroundColor: '#7C0B0B', marginRight: '25%' }}>
         {
           maxRating.map((item, key) => {
             return (
