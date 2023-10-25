@@ -11,7 +11,7 @@ export default function ListaRestaurantes({ navigation }) {
 
     const getRestaurante = async () => {
         try {
-            const response = await fetch('http://10.0.2.2:5000/estabelecimento', {
+            const response = await fetch('http://10.0.0.12:5000/estabelecimento', {
                 method: 'GET'
             });
 

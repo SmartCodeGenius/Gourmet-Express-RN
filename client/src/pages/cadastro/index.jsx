@@ -25,22 +25,22 @@ export default function Index({ setAuth }) {
             const body = { nome, email, senha };
 
             console.log(body)
-            const response = await fetch('http://10.0.2.2:5000/auth/registro', {
+            const response = await fetch('http://10.0.0.12:5000/auth/registro', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body)
             });
 
             const parseRes = await response.json();
 
             await AsyncStorage.setItem('token', parseRes.token)
-            setAuth(true)
+            setAuth = true
             navigation.navigate('RouteAuth')
         } catch (err) {
             console.error(err.message);
-            setAuth(false);
+            setAuth = false
         }   
-    }
+    }   
 
     return (
         <ScrollView contentContainerStyle={[globalStyles.container, { alignContent: 'center' }]}>
