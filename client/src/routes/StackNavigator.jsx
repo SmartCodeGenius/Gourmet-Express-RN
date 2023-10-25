@@ -14,9 +14,9 @@ export default function Routes() {
   const Stack = createNativeStackNavigator();
   const { ehAutenticado, EhAuth, setAuth } = useContext(AuthContext);
 
-  // useEffect(() => {
-  //   EhAuth();
-  // }, [EhAuth]);
+  useEffect(() => {
+    EhAuth();
+  }, [EhAuth]);
 
   return (
     <NavigationContainer>

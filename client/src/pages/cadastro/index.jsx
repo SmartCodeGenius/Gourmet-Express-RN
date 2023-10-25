@@ -1,3 +1,4 @@
+// Melissa was here
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import { globalStyles } from "../../components/atoms";
@@ -21,9 +22,9 @@ export default function Index({ setAuth }) {
 
     const onSubmitForm = async () => {
         try {
-
             const body = { nome, email, senha };
 
+            console.log(body)
             const response = await fetch('http://10.0.2.2:5000/auth/registro', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
@@ -34,11 +35,11 @@ export default function Index({ setAuth }) {
 
             await AsyncStorage.setItem('token', parseRes.token)
             setAuth(true)
-            // navigation.navigate('listaRestaurantes')
+            navigation.navigate('RouteAuth')
         } catch (err) {
             console.error(err.message);
             setAuth(false);
-        }
+        }   
     }
 
     return (
@@ -53,7 +54,7 @@ export default function Index({ setAuth }) {
                     <TextInput style={[globalStyles.textInput, { marginBottom: 30 }]} onChangeText={(text) => onChange('senha', text)} placeholder='Senha' secureTextEntry={true}></TextInput>
                     <TextInput style={[globalStyles.textInput, { marginBottom: 30 }]} placeholder='Confirmar senha' secureTextEntry={true}></TextInput>
 
-                    <TouchableOpacity underlayColor={'white'} style={[globalStyles.button, { alignSelf: 'center', marginTop: 30 }]} onPress={() => navigation.navigate('RouteAuth')}>
+                    <TouchableOpacity underlayColor={'white'} style={[globalStyles.button, { alignSelf: 'center', marginTop: 30 }]} onPress={() => onSubmitForm()}>
                         <Text style={{ color: 'white', fontSize: 28, fontWeight: "bold" }}>Próximo</Text>
                     </TouchableOpacity>
                 </View>
