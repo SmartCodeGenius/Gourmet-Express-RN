@@ -1,12 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, Image, Pressable } from "react-native";
 import { ScrollView } from "react-native";
 import { globalStyles } from '../../components/atoms';
+import { AuthContext } from "../../Context/Auth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Login({navigation}) {
-    const [email, setEmail] = useState();
-    const [senha, setSenha] = useState();
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
+    const { setAuth, setTokenJWT } = useContext(AuthContext);
+
+    const handleLogIn = async () => {
+        const data = {
+            email,
+            senha
+        }
+        
+        try {
+            const body = { email, senha };
+            console.log(body);
+
+            const response = await fetch('http://192.168.15.40:5000/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+
+            const parseRes = await response.json();
+
+            setTokenJWT(parseRes.token);
+            setAuth(true);
+            navigation.navigate('RouteAuth')
+        } catch (err) {
+            console.error(err.message);
+        }
+
+    }
 
     return(
         <ScrollView style={{flex: 1}} contentContainerStyle={{flexGrow: 1}}>
@@ -14,14 +45,14 @@ export default function Login({navigation}) {
             <Text style={[globalStyles.textTitle, {marginTop: 130}]}>Login</Text>
 
             <View style={{marginTop: 101, alignSelf: 'center'}}>
-                <TextInput placeholder="Email" onChangeText={newText => setEmail(newText)} style={[globalStyles.textInput, {marginBottom: 31}]}></TextInput>
-                <TextInput secureTextEntry={true} onChangeText={newText => setSenha(newText)} placeholder="Senha" style={[globalStyles.textInput]}></TextInput>
+                <TextInput value={email} placeholder="Email" onChangeText={setEmail} style={[globalStyles.textInput, {marginBottom: 31}]}></TextInput>
+                <TextInput value={senha} secureTextEntry={true} onChangeText={setSenha} placeholder="Senha" style={[globalStyles.textInput]}></TextInput>
 
                 <TouchableOpacity onPress={() => navigation.navigate('RecuperaSenha')}>
                     <Text style={{textAlign: 'center', fontSize: 16, color: 'grey'}}>Não lembra a senha?</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate('RouteAuth')} style={[globalStyles.button, {alignSelf: 'center', marginTop: 51}]}>
+                <TouchableOpacity onPress={handleLogIn} style={[globalStyles.button, {alignSelf: 'center', marginTop: 51}]}>
                     <Text style={{fontSize: 28, fontWeight: 'bold', color: 'white'}}>Entrar</Text>
                 </TouchableOpacity>
 

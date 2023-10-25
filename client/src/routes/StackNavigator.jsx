@@ -12,7 +12,7 @@ import TelaConfirmacao from '../pages/confirmation';
 
 export default function Routes() {
   const Stack = createNativeStackNavigator();
-  const { ehAutenticado, EhAuth, setAuth } = useContext(AuthContext);
+  const { ehAutenticado, EhAuth } = useContext(AuthContext);
 
   useEffect(() => {
     EhAuth();
@@ -27,7 +27,7 @@ export default function Routes() {
             component={HomeScreen}
             options={{ headerShown: false, animation: 'fade' }} />
         ) : (<Stack.Screen
-          name="RouteAuth"
+          name="verificacaoAuth"
           component={RouteAuth}
           options={{ headerShown: false, animation: 'fade' }} />
         )}

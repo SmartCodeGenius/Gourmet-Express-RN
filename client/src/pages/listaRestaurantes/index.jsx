@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { globalStyles } from "../../components/atoms";
 import { View, Text, Image, TouchableOpacity, FlatList } from "react-native";
 import ContainerRestaurant from "../../components/molecules/ContainerRestaurant"
 import Restaurantes from '../../db/restaurante.json'
 import { useEffect } from "react";
 import { useState } from "react";
+import { AuthContext } from "../../Context/Auth";
 
 export default function ListaRestaurantes({ navigation }) {
+    const { tokenJWT } = useContext(AuthContext);
     const [estabelecimento, setEstabelecimento] = useState([]);
+
+    console.log('TokenJWT: ', tokenJWT);
 
     const getRestaurante = async () => {
         try {
-            const response = await fetch('http://10.0.0.12:5000/estabelecimento', {
-                method: 'GET'
+            const response = await fetch('http://192.168.15.40:5000/estabelecimento', {
+                method: 'GET',
+                headers: { token: tokenJWT}
             });
 
             const parseRes = await response.json();
+            console.log(parseRes)
             setEstabelecimento(parseRes);
 
         } catch (err) {

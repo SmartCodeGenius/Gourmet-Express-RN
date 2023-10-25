@@ -5,6 +5,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [ehAutenticado, setEhAutenticado] = useState(false);
+    const [tokenJWT, setTokenJWT] = useState('');
     console.log('Usuario autenticado: ', ehAutenticado);
 
     const setAuth = (boolean) => {
@@ -25,7 +26,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     return (
-      <AuthContext.Provider value={{ ehAutenticado, EhAuth, setAuth }}>
+      <AuthContext.Provider value={{ ehAutenticado, EhAuth, setAuth, tokenJWT, setTokenJWT }}>
         {children}
       </AuthContext.Provider>
     );
