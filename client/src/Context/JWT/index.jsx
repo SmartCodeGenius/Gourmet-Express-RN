@@ -29,7 +29,7 @@ export const JWTProvider = ({ children }) => {
             return alert('As credenciais não podem estar vazias');
           }
           
-          const response = await fetch('http://localhost:5000/auth/login', {
+          const response = await fetch('http://192.168.16.1:5000/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body)

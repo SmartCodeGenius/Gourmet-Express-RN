@@ -7,17 +7,20 @@ import image from '../../db/image'
 import userIcon from '../../assets/icones/labelUsuario.png'
 import FlatListTelaInicial from "../../components/molecules/flatListTelaInicial";
 import dados from "../../db/comidas"
+import { useContext } from "react";
+import { AuthContext } from "../../Context/Auth";
 
 export default function TelaInicial({ route }) {
     const navigation = useNavigation();
     const { nome_estabelecimento, id } = route.params;
+    const { tokenJWT } = useContext(AuthContext);
 
     const [comidas, setComidas] = useState([]);
     const getComidas = async () => {
         try {
-            const response = await fetch('http://10.0.2.2:5000/produtos',{
+            const response = await fetch('http://192.168.16.1:5000/produtos/',{
                 method: 'GET',
-                headers: {'Estabelecimento-ID': id}
+                headers: { token: tokenJWT, "estabelecimento-id": id }
             });
             
             const parseRes = await response.json();
@@ -33,9 +36,6 @@ export default function TelaInicial({ route }) {
       getComidas()
     }, [id])
     
-    
-
-    // Criação do carousel
     const FuncCarousel = () => {
         const SLIDER_WIDTH = Dimensions.get("window").width
         const ITEM_WIDTH = SLIDER_WIDTH * 0.93

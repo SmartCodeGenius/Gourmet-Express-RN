@@ -7,7 +7,7 @@ export const GetNomeProvider = ({ children }) => {
 
     async function getNome() {
       try {
-        const response = await fetch('http://localhost:5000/dashboard', {
+        const response = await fetch('192.168.16.1:5000/dashboard', {
           method: 'GET',
           headers: { token: localStorage.token }
         });

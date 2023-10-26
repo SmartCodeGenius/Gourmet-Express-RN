@@ -24,7 +24,7 @@ export default function Index() {
         try {
             const body = { nome, email, senha };
 
-            const response = await fetch('http://<IP DA ESCOLA>:5000/auth/registro', {
+            const response = await fetch('http://192.168.16.1:5000/auth/registro', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body)
