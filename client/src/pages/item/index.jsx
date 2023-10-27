@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, TouchableHighlight, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import { globalStyles } from "../../components/atoms";
-import image from '../../db/image'
+import image from '../../assets/icones/img_estabelecimento.png'
 import minus from "../../assets/icones/minus.svg"
 import plus from "../../assets/icones/plus.svg"
 import { useState } from "react";
@@ -52,7 +52,7 @@ export default function Item({ route, navigation }) {
         <View style={globalStyles.containerHeader}>
           <Text style={{ color: 'white', textAlign: 'center', paddingTop: 50, fontSize: 35, fontWeight: 'bold' }}>{nome}</Text>
         </View>
-        <Image style={{ width: 322, height: 184, borderRadius: 10, marginTop: 15 }} source={image[img]}></Image>
+        <Image style={{ width: 322, height: 184, borderRadius: 10, marginTop: 15 }} source={image}></Image>
 
         {/* Estrelas */}
         <View style={{ marginTop: 10, borderRadius: 145, backgroundColor: "#7C0B0B", flexDirection: 'row', width: 274, height: 42, justifyContent: 'center' }}>

@@ -1,5 +1,5 @@
 import React from "react"
-import image from "../../db/image.js"
+import image from "../../assets/icones/img_estabelecimento.png"
 import { StyleSheet, Image, Text, View, ImageBackground, TouchableHighlight } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 
@@ -13,7 +13,7 @@ export default function Component1({data}) {
           <View style={styles.Container4}>
             <Image
               style={styles.Image2}
-              source={image[data.img]}
+              source={image}
             />
             <View style={[styles.Group766, {marginLeft: '2%'}]}>
               <Text style={styles.PODeQueijo3Un}>{data.nome}, {data.unidade} Un.</Text>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Pressable, View, Text, TouchableHighlight, Image, FlatList, TextInput, Dimensions } from "react-native";
+import { Pressable, View, Text, TouchableHighlight, Image, FlatList, TextInput, Dimensions, ScrollView } from "react-native";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
 import Carousel from "react-native-snap-carousel";
 import { globalStyles } from "../../components/atoms";
-import image from '../../db/image'
+import image from '../../assets/icones/img_estabelecimento.png'
 import userIcon from '../../assets/icones/labelUsuario.png'
 import FlatListTelaInicial from "../../components/molecules/flatListTelaInicial";
 import dados from "../../db/comidas"
@@ -18,7 +18,7 @@ export default function TelaInicial({ route }) {
     const [comidas, setComidas] = useState([]);
     const getComidas = async () => {
         try {
-            const response = await fetch('http://192.168.16.1:5000/produtos/',{
+            const response = await fetch('http://192.168.56.1:5000/produtos/',{
                 method: 'GET',
                 headers: { token: tokenJWT, "estabelecimento-id": id }
             });
@@ -51,7 +51,7 @@ export default function TelaInicial({ route }) {
                         <View style={{ backgroundColor: '#7C0B0B', width: 'auto', height: 245, borderRadius: 30 }}>
                             <Text style={[globalStyles.textTitle, { fontSize: 24, fontWeight: 'bold', color: 'white', marginTop: 10 }]}>{item.nome}</Text>
                             <Pressable onPress={() => navigation.navigate('Item', { nome: item.nome_produto, preço: item.preco_produto, img: item.img, ingrediente: item.ingredientes_produto, nota: item.avaliacao })}>
-                                <Image source={image[item.img]} style={{ height: 127, width: 306, borderRadius: 30, alignSelf: 'center', marginTop: '2.5%' }} />
+                                <Image source={image} style={{ height: 127, width: 306, borderRadius: 30, alignSelf: 'center', marginTop: '2.5%' }} />
                             </Pressable>
                             <Text style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', color: 'white', marginTop: '3%' }}>Por R${item.preco_produto}!</Text>
                         </View>
@@ -78,7 +78,7 @@ export default function TelaInicial({ route }) {
             </View>
 
             <Text style={{ color: '#7C0B0B', fontSize: 35, marginTop: 40, marginBottom: 20 }}>{nome_estabelecimento}</Text>
-            <View style={{ height: '36%', width: 'auto' }}>
+            <View style={{ height: '33%', width: 'auto' }}>
                 <FuncCarousel />
             </View>
 
