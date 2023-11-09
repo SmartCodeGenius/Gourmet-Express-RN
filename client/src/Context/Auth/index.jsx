@@ -14,9 +14,9 @@ export const AuthProvider = ({ children }) => {
 
     async function EhAuth() {
     try {
-      const response = await fetch('http://192.168.56.1:5000/auth/eh-verificado', {
+      const response = await fetch('http://10.3.116.106:5000/auth/eh-verificado', {
         method: 'GET',
-        headers: {token: AsyncStorage.token}
+        headers: {token: await AsyncStorage.getItem('token')}
       });
         const parseRes = await response.json();
         parseRes === true ? setEhAutenticado(true) : setEhAutenticado(false);         

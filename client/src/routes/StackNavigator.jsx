@@ -1,7 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useContext, useEffect } from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 import { AuthContext } from '../Context/Auth'
 
 import RouteAuth from './routeAuth';
@@ -20,18 +19,11 @@ export default function Routes() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {!ehAutenticado ? (
-          <Stack.Screen
-            name="index"
-            component={HomeScreen}
-            options={{ headerShown: false, animation: 'fade' }} />
-        ) : (<Stack.Screen
-          name="verificacaoAuth"
-          component={RouteAuth}
+      <Stack.Navigator initialRouteName='index'>
+        <Stack.Screen
+          name="index"
+          component={ehAutenticado ? HomeScreen : RouteAuth}
           options={{ headerShown: false, animation: 'fade' }} />
-        )}
-
         <Stack.Screen
           name="login"
           component={loginScreen}

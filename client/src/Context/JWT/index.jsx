@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useContext } from "react";
 import { createContext, useState } from "react";
 import { AuthContext } from "../Auth";
@@ -29,7 +30,7 @@ export const JWTProvider = ({ children }) => {
             return alert('As credenciais não podem estar vazias');
           }
           
-          const response = await fetch('http://192.168.56.1:5000/auth/login', {
+          const response = await fetch('http://10.3.116.106:5000/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body)
@@ -41,7 +42,7 @@ export const JWTProvider = ({ children }) => {
             return alert('Senha ou Email incorreto!');
           }
     
-          localStorage.setItem('token', parseRes.token);
+          await AsyncStorage.setItem('token', parseRes.token);
           setAuth(true);
     
           window.location.href = '/estabelecimentos';

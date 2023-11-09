@@ -11,11 +11,9 @@ export default function ListaRestaurantes({ navigation }) {
     const { tokenJWT } = useContext(AuthContext);
     const [estabelecimento, setEstabelecimento] = useState([]);
 
-    console.log('TokenJWT: ', tokenJWT);
-
     const getRestaurante = async () => {
         try {
-            const response = await fetch('http://192.168.56.1:5000/estabelecimento', {
+            const response = await fetch('http://10.3.116.106:5000/estabelecimento', {
                 method: 'GET',
                 headers: { token: tokenJWT}
             });

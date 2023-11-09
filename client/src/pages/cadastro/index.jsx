@@ -4,10 +4,11 @@ import { View, Text, TextInput, TouchableOpacity, ScrollView } from "react-nativ
 import { useNavigation } from '@react-navigation/native';
 import { globalStyles } from "../../components/atoms";
 import { AuthContext } from "../../Context/Auth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Index() {
     const navigation = useNavigation();
-    const { setAuth, setTokenJWT } = useContext(AuthContext);
+    const { setAuth, setTokenJWT, tokenJWT} = useContext(AuthContext);
 
 
     const [nome, setNome] = useState('');
@@ -20,28 +21,29 @@ export default function Index() {
             email,
             senha
         }
-        
-        try {
-            const body = { nome, email, senha };
 
-            const response = await fetch('http://192.168.56.1:5000/auth/registro', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(body)
-            });
+        if (nome != '' && senha != '' && email != '') {
+            try {
+                const body = { nome, email, senha };
 
-            const parseRes = await response.json();
+                const response = await fetch('http://10.3.116.106:5000/auth/registro', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body)
+                });
 
-            console.log('TokenJWT: ', parseRes);
+                const parseRes = await response.json();
 
-            setTokenJWT(parseRes.token);
-            setAuth(true);
-            navigation.navigate('RouteAuth')
+                // console.log('TokenJWT: ', parseRes.token);
 
-        } catch (err) {
-            console.error(err.message);
-        }
+                await AsyncStorage.setItem('token', parseRes.token)
+                setAuth(true);
+                navigation.navigate('RouteAuth')
 
+            } catch (err) {
+                console.error(err.message);
+            }
+        }else{alert('Campos vazios')}
     }
 
     return (
@@ -56,7 +58,7 @@ export default function Index() {
                     <TextInput style={[globalStyles.textInput, { marginBottom: 30 }]} onChangeText={setSenha} value={senha} placeholder='Senha' secureTextEntry={true}></TextInput>
                     {/* <TextInput style={[globalStyles.textInput, { marginBottom: 30 }]} placeholder='Confirmar senha' secureTextEntry={true}></TextInput> */}
 
-                    <TouchableOpacity underlayColor={'white'} style={[globalStyles.button, { alignSelf: 'center', marginTop: 30 }]} onPress={handleSignIn}>
+                    <TouchableOpacity underlayColor={'white'} style={[globalStyles.button, { alignSelf: 'center', marginTop: 30 }]} onPress={() => handleSignIn()}>
                         <Text style={{ color: 'white', fontSize: 28, fontWeight: "bold" }}>Criar Conta</Text>
                     </TouchableOpacity>
                 </View>
