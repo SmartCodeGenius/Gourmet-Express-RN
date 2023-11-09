@@ -22,7 +22,7 @@ export default function Routes() {
       <Stack.Navigator initialRouteName='index'>
         <Stack.Screen
           name="index"
-          component={ehAutenticado ? HomeScreen : RouteAuth}
+          component={!ehAutenticado ? HomeScreen : RouteAuth}
           options={{ headerShown: false, animation: 'fade' }} />
         <Stack.Screen
           name="login"

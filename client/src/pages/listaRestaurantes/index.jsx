@@ -13,7 +13,7 @@ export default function ListaRestaurantes({ navigation }) {
 
     const getRestaurante = async () => {
         try {
-            const response = await fetch('http://10.3.116.106:5000/estabelecimento', {
+            const response = await fetch('http://172.21.32.1:5000/estabelecimento', {
                 method: 'GET',
                 headers: { token: tokenJWT}
             });
