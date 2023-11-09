@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, Image, TouchableHighlight, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import { globalStyles } from "../../components/atoms";
 import image from '../../assets/icones/img_estabelecimento.png'
 import minus from "../../assets/icones/minus.svg"
 import plus from "../../assets/icones/plus.svg"
 import { useState } from "react";
+import { carrinhoContext } from "../../Context/Carrinho";
 
 export default function Item({ route, navigation }) {
-  const { nome, preço, img, ingrediente, unidade, key, nota } = route.params;
+  const { nome, preço, img, ingrediente, unidade, key, nota, id } = route.params;
   const [quantia, setQuantia] = useState(0);
-  const [carrinhoQuantia, setCarrinhoQuantia] = useState(0);
+  const [observacao, setObservacao] = useState("");
+
+  const { setCarrinho, carrinho } = useContext(carrinhoContext)
 
   function diminuiitem() {
     if (quantia === 0) {
@@ -20,6 +23,13 @@ export default function Item({ route, navigation }) {
   function aumentaitem() {
     return setQuantia(quantia + 1);
   }
+
+  function adicionaCarrinho(){
+    setCarrinho(arrayAntiga => [...arrayAntiga, id, quantia, observacao]);
+    console.log(carrinho)
+    console.log(carrinho)
+  }
+
   // Setando variaveis para sistema de review
   const [defaultRating, setDefaultRating] = useState(0);
   const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5])
@@ -79,13 +89,13 @@ export default function Item({ route, navigation }) {
             </TouchableHighlight>
           </View>
 
-          <TouchableHighlight onPress={() => alert('Sem sistema de carrinho (ainda)')} underlayColor={'white'} style={[globalStyles.button, { marginTop: '2%' }]}>
+          <TouchableHighlight onPress={() => adicionaCarrinho()} underlayColor={'white'} style={[globalStyles.button, { marginTop: '2%' }]}>
             <Text style={{ fontSize: 20, textAlign: 'center', fontWeight: "700", color: 'white' }}>Adicionar ao carrinho</Text>
           </TouchableHighlight>
 
           <View style={{ marginTop: '5%', marginBottom: '10%' }}>
             <Text style={{ textAlign: 'center' }}>Observações</Text>
-            <TextInput style={[globalStyles.textInput, { width: 300, textAlign: 'left', textAlignVertical: 'center' }]}></TextInput>
+            <TextInput editable multiline numberOfLines={5} maxLength={200} onChangeText={text => setObservacao(text)} style={[globalStyles.textInput, { width: 300, textAlign: 'left', textAlignVertical: 'center', padding: 5}]}></TextInput>
           </View>
 
         </View>

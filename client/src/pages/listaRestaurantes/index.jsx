@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { globalStyles } from "../../components/atoms";
 import { View, Text, Image, TouchableOpacity, FlatList } from "react-native";
 import ContainerRestaurant from "../../components/molecules/ContainerRestaurant"
-import Restaurantes from '../../db/restaurante.json'
 import { useEffect } from "react";
 import { useState } from "react";
 import { AuthContext } from "../../Context/Auth";
@@ -13,7 +12,7 @@ export default function ListaRestaurantes({ navigation }) {
 
     const getRestaurante = async () => {
         try {
-            const response = await fetch('http://172.21.32.1:5000/estabelecimento', {
+            const response = await fetch('http://10.3.116.106:5000/estabelecimento/getAllEstabelecimentos', {
                 method: 'GET',
                 headers: { token: tokenJWT}
             });

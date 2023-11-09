@@ -6,19 +6,20 @@ import { globalStyles } from "../../components/atoms";
 import image from '../../assets/icones/img_estabelecimento.png'
 import userIcon from '../../assets/icones/labelUsuario.png'
 import FlatListTelaInicial from "../../components/molecules/flatListTelaInicial";
-import dados from "../../db/comidas"
 import { useContext } from "react";
 import { AuthContext } from "../../Context/Auth";
+import { carrinhoContext } from "../../Context/Carrinho";
 
 export default function TelaInicial({ route }) {
     const navigation = useNavigation();
+    
     const { nome_estabelecimento, id } = route.params;
     const { tokenJWT } = useContext(AuthContext);
 
     const [comidas, setComidas] = useState([]);
     const getComidas = async () => {
         try {
-            const response = await fetch('10.3.118.160:5000/produtos/',{
+            const response = await fetch('http://10.3.116.106:5000/produtos/',{
                 method: 'GET',
                 headers: { token: tokenJWT, "estabelecimento-id": id }
             });
@@ -50,7 +51,7 @@ export default function TelaInicial({ route }) {
                     return (
                         <View style={{ backgroundColor: '#7C0B0B', width: 'auto', height: 245, borderRadius: 30 }}>
                             <Text style={[globalStyles.textTitle, { fontSize: 24, fontWeight: 'bold', color: 'white', marginTop: 10 }]}>{item.nome}</Text>
-                            <Pressable onPress={() => navigation.navigate('Item', { nome: item.nome_produto, preço: item.preco_produto, img: item.img, ingrediente: item.ingredientes_produto, nota: item.avaliacao })}>
+                            <Pressable onPress={() => navigation.navigate('Item', { nome: item.nome_produto, preço: item.preco_produto, img: item.img, ingrediente: item.ingredientes_produto, nota: item.avaliacao, id: item.id_produto })}>
                                 <Image source={image} style={{ height: 127, width: 306, borderRadius: 30, alignSelf: 'center', marginTop: '2.5%' }} />
                             </Pressable>
                             <Text style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', color: 'white', marginTop: '3%' }}>Por R${item.preco_produto}!</Text>

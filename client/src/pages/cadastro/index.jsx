@@ -28,7 +28,7 @@ export default function Index() {
 
                 console.log(body)
 
-                const response = await fetch('http://172.21.32.1:5000/auth/registro', {
+                const response = await fetch('http://10.3.116.106:5000/auth/registro', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(body)
