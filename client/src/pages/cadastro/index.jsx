@@ -8,7 +8,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Index() {
     const navigation = useNavigation();
-    const { setAuth, setTokenJWT, tokenJWT} = useContext(AuthContext);
+    const { setAuth, setTokenJWT } = useContext(AuthContext);
 
 
     const [nome, setNome] = useState('');
@@ -26,15 +26,16 @@ export default function Index() {
             try {
                 const body = { nome, email, senha };
 
-                const response = await fetch('http://10.3.116.106:5000/auth/registro', {
+                console.log(body)
+
+                const response = await fetch('http://172.21.32.1:5000/auth/registro', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(body)
                 });
 
                 const parseRes = await response.json();
-
-                // console.log('TokenJWT: ', parseRes.token);
+                setTokenJWT(parseRes.token)
 
                 await AsyncStorage.setItem('token', parseRes.token)
                 setAuth(true);
