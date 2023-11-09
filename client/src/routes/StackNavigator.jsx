@@ -26,15 +26,15 @@ export default function Routes() {
           options={{ headerShown: false, animation: 'fade' }} />
         <Stack.Screen
           name="login"
-          component={loginScreen}
+          component={ehAutenticado ? loginScreen : RouteAuth}
           options={{ headerShown: false, animation: 'fade' }} />
         <Stack.Screen
           name="cadastro"
-          component={cadastroScreen}
+          component={ehAutenticado ? cadastroScreen : RouteAuth}
           options={{ headerShown: false, animation: 'fade' }} />
         <Stack.Screen
           name='telaConfirmacao'
-          component={TelaConfirmacao}
+          component={ehAutenticado ? TelaConfirmacao : RouteAuth}
           options={{ headerShown: false, animation: 'fade' }}
         />
         <Stack.Screen
