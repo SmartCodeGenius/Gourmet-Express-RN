@@ -24,7 +24,7 @@ export default function FuncCarousel(){
             return(
             <View style={{backgroundColor: '#7C0B0B', width: 'auto', height: 245, borderRadius: 30}}>
                 <Text style={[globalStyles.textTitle, {fontSize: 24, fontWeight: 'bold', color: 'white', marginTop: 10}]}>{item.nome}</Text>
-                <Pressable onPress={() => navigation.navigate('Item', {nome: item.nome, preço: item.preço, img: item.img, ingrediente: item.ingrediente, unidade: item.unidade})}>
+                <Pressable onPress={() => navigation.navigate('Item', {nome: item.nome, preço: item.preço, img: item.img, ingrediente: item.ingrediente, unidade: item.unidade, id:item.id})}>
                 <Image source={image} style={{height: 127, width: 306, borderRadius: 30, alignSelf: 'center', marginTop: '2.5%'}}/>
                 </Pressable>
                 <Text style={{textAlign: 'center', fontSize: 30, fontWeight: 'bold', color:'white', marginTop: '3%'}}>Por R${item.preço}!</Text>

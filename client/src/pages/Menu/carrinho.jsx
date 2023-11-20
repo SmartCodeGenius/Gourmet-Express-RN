@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, Image, FlatList, TouchableHighlight } from "react-native";
 import { globalStyles } from "../../components/atoms";
 import FlatListCarrinho from "../../components/molecules/flatListCarrinho";
+import { carrinhoContext } from "../../Context/Carrinho";
 import dados from '../../db/comidas.json'
 import image from '../../db/image'
 
 
 export default function Carrinho() {
+  const {carrinho} = useContext(carrinhoContext)
+
   return (
     <View style={globalStyles.container}>
       <Text style={{ fontSize: 40, fontWeight: 'bold', marginTop: '13%', textAlign: 'center' }}>Carrinho</Text>
 
       <FlatList
-        data={dados}
-        keyExtractor={item => item.key}
+        data={carrinho}
+        keyExtractor={item => item.id}
         renderItem={({ item }) => <FlatListCarrinho data={item} />}
       />
 

@@ -2,6 +2,7 @@ import React from "react"
 import image from "../../assets/icones/img_estabelecimento.png"
 import { StyleSheet, Image, Text, View, ImageBackground, TouchableHighlight } from "react-native"
 import { useNavigation } from "@react-navigation/native"
+import Item from "../../pages/item";
 
 export default function Component1({data}) {
   const navigation = useNavigation();
@@ -58,7 +59,7 @@ export default function Component1({data}) {
           </View>
         </View>
       </View>
-        <TouchableHighlight onPress={() => navigation.navigate('Item', {nome: data.nome, preço: data.preço, img: data.img, ingrediente: data.ingrediente, unidade: data.unidade})} underlayColor={'white'} style={styles.Group63}>
+        <TouchableHighlight onPress={() => navigation.navigate('Item', {nome: data.nome, preço: data.preço, img: data.img, ingrediente: data.ingrediente, unidade: data.unidade, id: data.id})} underlayColor={'white'} style={styles.Group63}>
             <Text style={styles.Comprar}>Comprar</Text>
         </TouchableHighlight>
     </View>

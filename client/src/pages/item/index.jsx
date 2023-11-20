@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { View, Text, Image, TouchableHighlight, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import { globalStyles } from "../../components/atoms";
 import image from '../../assets/icones/img_estabelecimento.png'
 import minus from "../../assets/icones/minus.svg"
 import plus from "../../assets/icones/plus.svg"
-import { useState } from "react";
 import { carrinhoContext } from "../../Context/Carrinho";
 
 export default function Item({ route, navigation }) {
@@ -12,7 +11,11 @@ export default function Item({ route, navigation }) {
   const [quantia, setQuantia] = useState(0);
   const [observacao, setObservacao] = useState("");
 
-  const { setCarrinho, carrinho } = useContext(carrinhoContext)
+  const { carrinho, setCarrinho } = useContext(carrinhoContext);
+
+  useEffect(() => {
+    console.log(carrinho)
+  }, [carrinho]);
 
   function diminuiitem() {
     if (quantia === 0) {
@@ -25,9 +28,7 @@ export default function Item({ route, navigation }) {
   }
 
   function adicionaCarrinho(){
-    setCarrinho(arrayAntiga => [...arrayAntiga, id, quantia, observacao]);
-    console.log(carrinho)
-    console.log(carrinho)
+    setCarrinho([id, quantia, observacao]);
   }
 
   // Setando variaveis para sistema de review
