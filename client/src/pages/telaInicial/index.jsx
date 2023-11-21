@@ -19,7 +19,7 @@ export default function TelaInicial({ route }) {
     const [comidas, setComidas] = useState([]);
     const getComidas = async () => {
         try {
-            const response = await fetch('http://10.3.117.208:5000/produtos/',{
+            const response = await fetch('http://10.3.118.177:5000/produtos/',{
                 method: 'GET',
                 headers: { token: tokenJWT, "estabelecimento-id": id }
             });

@@ -36,7 +36,7 @@ export default function FlatListTelaInicial({ data }) {
   return (
     <View style={{ paddingTop: 20, borderColor: 'gray', borderBottomWidth: 1, paddingBottom: 20 }}>
       <View style={{ flexDirection: "row" }}>
-        <Pressable onPress={() => navigation.navigate('Item', { nome: data.nome_produto, preço: data.preco_produto, img: data.img, ingrediente: data.ingredientes_produto, nota: data.avaliacao })}>
+        <Pressable onPress={() => navigation.navigate('Item', { nome: data.nome_produto, preço: data.preco_produto, img: data.img, ingrediente: data.ingredientes_produto, nota: data.avaliacao, id:data.id_produto})}>
           <Image source={image} style={{ width: 144.11, height: 93, borderRadius: 10, marginRight: 40 }} />
         </Pressable>
         <View>

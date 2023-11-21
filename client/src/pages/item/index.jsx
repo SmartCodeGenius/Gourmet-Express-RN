@@ -27,9 +27,28 @@ export default function Item({ route, navigation }) {
     return setQuantia(quantia + 1);
   }
 
-  function adicionaCarrinho(){
-    setCarrinho([id, quantia, observacao]);
+  function adicionaCarrinho() {
+    const newCarrinho = {nome: nome, preço:preço, id: id, quantia: quantia, observacao: observacao }
+    for (let index = 0; index < carrinho.length; index++) {
+      if(carrinho[index].id == id){
+        setCarrinho(carrinho.filter(newCarrinho => newCarrinho.id !== id))
+        setCarrinho(listaCarrinho => [...listaCarrinho, newCarrinho]);
+      }else if(carrinho[0].id == 0){
+        console.log("objeto 0 no carrinho")
+        setCarrinho(carrinho.filter(newCarrinho => newCarrinho.id !== 0))
+        setCarrinho(listaCarrinho => [...listaCarrinho, newCarrinho]);
+      }else{setCarrinho(listaCarrinho => [...listaCarrinho, newCarrinho]);}
+    }
+
   }
+
+  // function adicionaCarrinho() {
+  //   const newCarrinho = { id: id, quantia: quantia, observacao: observacao }
+  //   if (carrinho[1].id == id) {
+  //     alert("Já existe")
+  //   } else { setCarrinho(listaCarrinho => [...listaCarrinho, newCarrinho]); }
+  //   // setCarrinho([{id:0,quantia:0,observacao:""}])
+  // }
 
   // Setando variaveis para sistema de review
   const [defaultRating, setDefaultRating] = useState(0);
@@ -96,7 +115,7 @@ export default function Item({ route, navigation }) {
 
           <View style={{ marginTop: '5%', marginBottom: '10%' }}>
             <Text style={{ textAlign: 'center' }}>Observações</Text>
-            <TextInput editable multiline numberOfLines={5} maxLength={200} onChangeText={text => setObservacao(text)} style={[globalStyles.textInput, { width: 300, textAlign: 'left', textAlignVertical: 'center', padding: 5}]}></TextInput>
+            <TextInput editable multiline numberOfLines={5} maxLength={200} onChangeText={text => setObservacao(text)} style={[globalStyles.textInput, { width: 300, textAlign: 'left', textAlignVertical: 'center', padding: 5 }]}></TextInput>
           </View>
 
         </View>
