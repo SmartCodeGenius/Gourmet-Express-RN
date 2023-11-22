@@ -28,27 +28,18 @@ export default function Item({ route, navigation }) {
   }
 
   function adicionaCarrinho() {
-    const newCarrinho = {nome: nome, preço:preço, id: id, quantia: quantia, observacao: observacao }
+    const newCarrinho = { nome: nome, preço: preço, id: id, quantia: quantia, observacao: observacao }
     for (let index = 0; index < carrinho.length; index++) {
-      if(carrinho[index].id == id){
+      if (carrinho[index].id == id) {
         setCarrinho(carrinho.filter(newCarrinho => newCarrinho.id !== id))
         setCarrinho(listaCarrinho => [...listaCarrinho, newCarrinho]);
-      }else if(carrinho[0].id == 0){
-        console.log("objeto 0 no carrinho")
+      } else if (carrinho[0].id == 0) {
         setCarrinho(carrinho.filter(newCarrinho => newCarrinho.id !== 0))
         setCarrinho(listaCarrinho => [...listaCarrinho, newCarrinho]);
-      }else{setCarrinho(listaCarrinho => [...listaCarrinho, newCarrinho]);}
+      } else { setCarrinho(listaCarrinho => [...listaCarrinho, newCarrinho]); }
     }
 
   }
-
-  // function adicionaCarrinho() {
-  //   const newCarrinho = { id: id, quantia: quantia, observacao: observacao }
-  //   if (carrinho[1].id == id) {
-  //     alert("Já existe")
-  //   } else { setCarrinho(listaCarrinho => [...listaCarrinho, newCarrinho]); }
-  //   // setCarrinho([{id:0,quantia:0,observacao:""}])
-  // }
 
   // Setando variaveis para sistema de review
   const [defaultRating, setDefaultRating] = useState(0);
