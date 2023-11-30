@@ -2,6 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useContext } from "react";
 import { createContext, useState } from "react";
 import { AuthContext } from "../Auth";
+import { SERVER_IP } from '@env';
 
 export const JWTContext = createContext();
 
@@ -30,7 +31,7 @@ export const JWTProvider = ({ children }) => {
             return alert('As credenciais não podem estar vazias');
           }
           
-          const response = await fetch('http://10.3.116.156:5000/auth/login', {
+          const response = await fetch(`http://${SERVER_IP}:5000/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body)

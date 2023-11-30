@@ -8,7 +8,9 @@ import userIcon from '../../assets/icones/labelUsuario.png'
 import FlatListTelaInicial from "../../components/molecules/flatListTelaInicial";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/Auth";
-import { carrinhoContext } from "../../Context/Carrinho";
+import { SERVER_IP } from '@env';
+
+// import { carrinhoContext } from "../../Context/Carrinho";
 
 export default function TelaInicial({ route }) {
     const navigation = useNavigation();
@@ -19,7 +21,7 @@ export default function TelaInicial({ route }) {
     const [comidas, setComidas] = useState([]);
     const getComidas = async () => {
         try {
-            const response = await fetch('http://10.3.116.156:5000/produtos/',{
+            const response = await fetch(`http://${SERVER_IP}:5000/produtos`,{
                 method: 'GET',
                 headers: { token: tokenJWT, "estabelecimento-id": id }
             });

@@ -4,7 +4,10 @@ import { View, Text, TextInput, TouchableOpacity, ScrollView } from "react-nativ
 import { useNavigation } from '@react-navigation/native';
 import { globalStyles } from "../../components/atoms";
 import { AuthContext } from "../../Context/Auth";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { SERVER_IP } from '@env';
+
+
+// import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Index() {
     const navigation = useNavigation();
@@ -28,7 +31,7 @@ export default function Index() {
 
                 console.log(body)
 
-                const response = await fetch('http://10.3.116.156:5000/auth/registro', {
+                const response = await fetch(`http://${SERVER_IP}:5000/auth/registro`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(body)

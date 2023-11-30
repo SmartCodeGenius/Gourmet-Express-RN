@@ -4,6 +4,8 @@ import { View, Text, Image, FlatList, TouchableHighlight } from "react-native";
 import { globalStyles } from "../../components/atoms";
 import FlatListCarrinho from "../../components/molecules/flatListCarrinho";
 import { carrinhoContext } from "../../Context/Carrinho";
+import { SERVER_IP } from '@env';
+
 
 export default function Carrinho({ navigation }) {
   const { carrinho, setCarrinho } = useContext(carrinhoContext);
@@ -19,7 +21,7 @@ export default function Carrinho({ navigation }) {
     carrinho.map(async (pedido) => {
       const body = { idProduto: pedido.id, adicional: pedido.observacao, quantia: pedido.quantia };
 
-      const response = await fetch('http://10.3.116.156:5000/pedidos/realizarPedido', {
+      const response = await fetch(`http://${SERVER_IP}:5000/pedidos/realizarPedido`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)

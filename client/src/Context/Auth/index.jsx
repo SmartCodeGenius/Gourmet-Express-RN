@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createContext, useState } from "react";
+import { SERVER_IP } from '@env';
 
 export const AuthContext = createContext();
 
@@ -14,7 +15,7 @@ export const AuthProvider = ({ children }) => {
 
     async function EhAuth() {
     try {
-      const response = await fetch('http://10.3.116.156:5000/auth/eh-verificado', {
+      const response = await fetch(`http://${SERVER_IP}:5000/auth/eh-verificado`, {
         method: 'GET',
         headers: {token: tokenJWT}
       });

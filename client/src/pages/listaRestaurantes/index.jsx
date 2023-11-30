@@ -5,7 +5,9 @@ import ContainerRestaurant from "../../components/molecules/ContainerRestaurant"
 import { useEffect } from "react";
 import { useState } from "react";
 import { AuthContext } from "../../Context/Auth";
-import { carrinhoContext } from "../../Context/Carrinho";
+import { SERVER_IP } from '@env';
+
+// import { carrinhoContext } from "../../Context/Carrinho";
 
 export default function ListaRestaurantes({ navigation }) {
     const { tokenJWT } = useContext(AuthContext);
@@ -13,7 +15,7 @@ export default function ListaRestaurantes({ navigation }) {
 
     const getRestaurante = async () => {
         try {
-            const response = await fetch('http://10.3.116.156:5000/estabelecimento/getAllEstabelecimentos', {
+            const response = await fetch(`http://${SERVER_IP}:5000/estabelecimento/getAllEstabelecimentos`, {
                 method: 'GET',
                 headers: { token: tokenJWT}
             });

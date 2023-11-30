@@ -5,6 +5,8 @@ import { ScrollView } from "react-native";
 import { globalStyles } from '../../components/atoms';
 import { AuthContext } from "../../Context/Auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { SERVER_IP } from '@env';
+
 
 export default function Login({ navigation }) {
     const [email, setEmail] = useState('');
@@ -22,7 +24,7 @@ export default function Login({ navigation }) {
                 const body = { email, senha };
                 console.log(body);
 
-                const response = await fetch('http://10.3.116.156:5000/auth/login', {
+                const response = await fetch(`http://${SERVER_IP}:5000/auth/login`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(body)
