@@ -22,7 +22,7 @@ export default function Login({ navigation }) {
                 const body = { email, senha };
                 console.log(body);
 
-                const response = await fetch('http://10.3.116.113:5000/auth/login', {
+                const response = await fetch('http://10.3.116.156:5000/auth/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(body)
